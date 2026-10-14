@@ -1,0 +1,108 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --color-azure-11-2: rgb(15,23,42); /* @kind color */
+  --color-azure-11: rgb(17,24,39); /* @kind color */
+  --color-azure-17: rgb(31,41,55); /* @kind color */
+  --color-azure-27: rgb(55,65,81); /* @kind color */
+  --color-azure-34: rgb(75,85,99); /* @kind color */
+  --color-azure-65: rgb(156,163,175); /* @kind color */
+  --color-azure-84: rgb(209,213,219); /* @kind color */
+  --color-black-0: rgba(0,0,0,0); /* @kind color */
+  --color-black-60: rgba(0,0,0,0.6); /* @kind color */
+  --color-black-75: rgba(0,0,0,0.75); /* @kind color */
+  --color-black-85: rgba(0,0,0,0.85); /* @kind color */
+  --color-black-solid: rgb(0,0,0); /* @kind color */
+  --color-blue-4-10: rgba(9,9,11,0.1); /* @kind color */
+  --color-blue-4-5: rgba(9,9,11,0.05); /* @kind color */
+  --color-blue-4: rgb(9,9,11); /* @kind color */
+  --color-chartreuse-green-10: rgb(26,46,5); /* @kind color */
+  --color-grey-46: rgb(107,114,128); /* @kind color */
+  --color-grey-91: rgb(229,231,235); /* @kind color */
+  --color-grey-92-60: rgba(255,237,213,0.6); /* @kind color */
+  --color-grey-95: rgb(252,231,243); /* @kind color */
+  --color-grey-96-80: rgba(255,247,237,0.8); /* @kind color */
+  --color-grey-96: rgb(243,244,246); /* @kind color */
+  --color-grey-97: rgb(253,242,248); /* @kind color */
+  --color-grey-98: rgb(249,250,251); /* @kind color */
+  --color-rose-42: rgb(190,24,93); /* @kind color */
+  --color-rose-49-15: rgba(236,15,140,0.15); /* @kind color */
+  --color-rose-49-90: rgba(236,15,140,0.9); /* @kind color */
+  --color-rose-49: rgb(236,15,140); /* @kind color */
+  --color-rose-51-90: rgba(219,39,119,0.9); /* @kind color */
+  --color-rose-51: rgb(219,39,119); /* @kind color */
+  --color-rose-60: rgb(236,72,153); /* @kind color */
+  --color-rose-70-15: rgba(244,114,182,0.15); /* @kind color */
+  --color-spring-green-49: rgb(37,211,102); /* @kind color */
+  --color-white-0-2: rgba(255,255,255,0.002); /* @kind color */
+  --color-white-10: rgba(255,255,255,0.1); /* @kind color */
+  --color-white-90: rgba(255,255,255,0.9); /* @kind color */
+  --color-white-95: rgba(255,255,255,0.95); /* @kind color */
+  --color-white-solid: rgb(255,255,255); /* @kind color */
+  --corner-radius-12: 12;
+  --corner-radius-16: 16;
+  --corner-radius-6: 6;
+  --corner-radius-7: 7;
+  --corner-radius-8: 8;
+  --corner-radius-9999: 9999;
+  --font-family-font-1: "Poppins";
+  --font-family-font-2: "Playfair Display";
+  --font-family-font-3: "Inter";
+  --font-size-14: 14;
+  --font-size-16: 16;
+  --font-size-18: 18;
+  --font-size-19-2: 19.2;
+  --font-size-20: 20;
+  --font-size-30: 30;
+  --font-size-36: 36;
+  --font-size-48: 48;
+  --font-size-60: 60;
+  --font-style-italic: "Italic"; /* @kind other */
+  --font-weight-400: 400; /* @kind other */
+  --font-weight-500: 500; /* @kind other */
+  --font-weight-600: 600; /* @kind other */
+  --font-weight-700: 700; /* @kind other */
+  --height-1193: 1193; /* @kind other */
+  --item-spacing-0: 0;
+  --item-spacing-1086-25: 1086.25; /* @kind other */
+  --item-spacing-11: 11;
+  --item-spacing-12: 12;
+  --item-spacing-223-73: 223.73; /* @kind other */
+  --item-spacing-23-4: 23.4;
+  --item-spacing-3-99: 3.99;
+  --item-spacing-4: 4;
+  --item-spacing-7-5: 7.5;
+  --item-spacing-80: 80;
+  --item-spacing-l: 48;
+  --item-spacing-m: 32;
+  --item-spacing-s: 24;
+  --item-spacing-xl: 64;
+  --item-spacing-xs: 8;
+  --line-height-20: 20;
+  --line-height-24: 24;
+  --line-height-25-2: 25.2;
+  --line-height-26: 26;
+  --line-height-28: 28;
+  --line-height-29-25: 29.25;
+  --line-height-29-4: 29.4;
+  --line-height-32: 32;
+  --line-height-40: 40;
+  --opacity-100: 100; /* @kind other */
+  --opacity-50: 50; /* @kind other */
+  --stroke-weight-0-05: 0.052; /* @kind other */
+  --stroke-weight-0-4: 0.4; /* @kind other */
+  --stroke-weight-1-17: 1.167; /* @kind other */
+  --stroke-weight-1-33: 1.333; /* @kind other */
+  --stroke-weight-1: 1; /* @kind other */
+  --stroke-weight-2: 2; /* @kind other */
+  --width-1472: 1472; /* @kind other */
+  --width-1536: 1536; /* @kind other */
+  --width-1621: 1621; /* @kind other */
+  --width-270-38: 270.38; /* @kind other */
+  --width-273-67: 273.67; /* @kind other */
+  --width-576: 576; /* @kind other */
+  --width-672: 672; /* @kind other */
+  --width-768: 768; /* @kind other */
+  --width-896: 896; /* @kind other */
+}

@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Sonshine"><meta name="theme-color" content="#FFFFFF"><template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#EC0F8C"></rect><text x="50" y="64" font-family="Georgia,serif" font-size="44" font-weight="700" fill="#fff" text-anchor="middle">S</text></svg></template>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Sonshine"><meta name="theme-color" content="#FFFFFF"><template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#EC0F8C"></rect><text x="50" y="64" font-family="Georgia,serif" font-size="44" font-weight="700" fill="#fff" text-anchor="middle">S</text></svg></template>
+<link rel="stylesheet" href="_ds/sonshine-hollistic-design-system-de4847b6-c031-4509-bcb9-948fb7ac227a/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/sonshine-hollistic-design-system-de4847b6-c031-4509-bcb9-948fb7ac227a/tokens/fig-tokens.css">
+<link rel="stylesheet" href="_ds/sonshine-hollistic-design-system-de4847b6-c031-4509-bcb9-948fb7ac227a/tokens/colors.css">
+<link rel="stylesheet" href="_ds/sonshine-hollistic-design-system-de4847b6-c031-4509-bcb9-948fb7ac227a/tokens/typography.css">
+<link rel="stylesheet" href="_ds/sonshine-hollistic-design-system-de4847b6-c031-4509-bcb9-948fb7ac227a/tokens/layout.css">
+<link rel="stylesheet" href="_ds/sonshine-hollistic-design-system-de4847b6-c031-4509-bcb9-948fb7ac227a/styles.css">
+<script src="_ds/sonshine-hollistic-design-system-de4847b6-c031-4509-bcb9-948fb7ac227a/_ds_bundle.js"></script>
+<script src="sonshine-data.js"></script>
+<script src="sonshine-engine.js"></script>
+<script src="sonshine-views.js"></script>
+<style>
+body{margin:0;background:#FDF2F8;font-family:var(--font-body)}
+*{box-sizing:border-box}
+a{color:#EC0F8C;text-decoration:none}
+a:hover{color:#DB2777}
+button{font-family:var(--font-body)}
+input,select,textarea{font-family:var(--font-body)}
+.phone-scroll::-webkit-scrollbar,.hscroll::-webkit-scrollbar{display:none}
+@media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}}
+</style>
+</helmet>
+<div aria-hidden="true" style="display:none"><img data-asset="assets/hero-home.jpg" src="assets/hero-home.jpg" alt=""><img data-asset="assets/hero-classes.jpg" src="assets/hero-classes.jpg" alt=""><img data-asset="assets/studio-mats.png" src="assets/studio-mats.png" alt=""><img data-asset="assets/studio-exterior.png" src="assets/studio-exterior.png" alt=""><img data-asset="assets/studio-buddha.png" src="assets/studio-buddha.png" alt=""><img data-asset="assets/kids-bigger.png" src="assets/kids-bigger.png" alt=""><img data-asset="assets/kids-teen.png" src="assets/kids-teen.png" alt=""></div>
+<div style="min-height:100vh;background:var(--surface-blush);padding:{{ fr.pad }};display:flex;flex-direction:column;align-items:center;gap:28px">
+<sc-if value="{{ fr.desk }}" hint-placeholder-val="{{ true }}"><header style="width:100%;max-width:900px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="assets/logo.webp" alt="Sonshine Hollistic" style="height:56px;background:#fff;border-radius:12px;padding:6px 10px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08)">
+<div style="display:flex;flex-direction:column;gap:2px">
+<span style="font:700 24px/30px var(--font-display);color:var(--text-strong)">Sonshine Hollistic App</span>
+<span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">Customer booking app and studio management, sharing one booking engine</span>
+</div>
+</div>
+<sc-if value="{{ showBanner }}" hint-placeholder-val="{{ true }}">
+<div style="font:500 12px/18px var(--font-body);color:var(--brand-rose-ink);background:#fff;border-radius:8px;padding:8px 12px;max-width:340px;box-shadow:0 1px 2px rgba(0,0,0,.05)">Demo mode — data is stored on this device. Prices, dates and capacities are demonstration values. Payments are test mode only. Try emma@demo.test or son@demo.test · password demo1234</div>
+</sc-if>
+</header></sc-if>
+<div style="display:flex;flex-wrap:wrap;gap:{{ fr.gap }};justify-content:center;align-items:flex-start">
+<sc-if value="{{ showCustomer }}" hint-placeholder-val="{{ true }}">
+<section data-screen-label="Customer App" style="display:flex;flex-direction:column;align-items:center;gap:{{ fr.sg }}">
+<sc-if value="{{ fr.desk }}" hint-placeholder-val="{{ true }}"><span style="font:600 12px/20px var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--brand-rose);border-radius:6px;padding:4px 12px">Customer App</span></sc-if>
+<div style="width:{{ fr.ow }};height:{{ fr.oh }};border-radius:{{ fr.or }};background:#0F172A;padding:{{ fr.op }};box-shadow:{{ fr.sh }};flex:none">
+<div style="position:relative;width:{{ fr.iw }};height:{{ fr.ih }};border-radius:{{ fr.ir }};overflow:hidden;background:var(--surface-alt);display:flex;flex-direction:column">
+<div style="height:{{ fr.sb }};visibility:{{ fr.vis }};overflow:hidden;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font:600 15px/20px var(--font-ui-alt);color:var(--text-strong);background:#fff"><span>9:41</span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"></rect><rect x="5" y="5" width="3" height="7" rx="1"></rect><rect x="10" y="2" width="3" height="10" rx="1"></rect><rect x="15" y="0" width="3" height="12" rx="1"></rect></svg><svg width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor"><rect x="0.5" y="0.5" width="22" height="11" rx="3"></rect><rect x="2.5" y="2.5" width="16" height="7" rx="1.5" fill="currentColor" stroke="none"></rect></svg></span></div>
+<sc-if value="{{ loading }}" hint-placeholder-val="{{ true }}"><div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fff"><img src="assets/logo.webp" alt="Loading Sonshine Hollistic" style="width:140px;opacity:.9"></div></sc-if>
+<sc-if value="{{ c.headerTab }}">
+<div style="height:60px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 12px 0 16px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);box-shadow:0 1px 2px rgba(0,0,0,.05);position:relative;z-index:2">
+<img src="assets/logo.webp" alt="Sonshine Hollistic" style="height:44px">
+<div style="display:flex;align-items:center;gap:4px">
+<sc-if value="{{ c.guest }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ c.go.signin }}" hint-size="72px,36px" style="background:var(--color-rose-49)">Sign In</x-import></sc-if>
+<sc-if value="{{ c.signedIn }}">
+<button onClick="{{ c.go.notifs }}" aria-label="Notifications" style="position:relative;width:44px;height:44px;border:none;background:none;cursor:pointer;color:var(--text-strong);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.7 21a2 2 0 01-3.4 0"></path></svg><sc-if value="{{ c.hasUnread }}"><span style="position:absolute;top:6px;right:5px;min-width:18px;height:18px;border-radius:9px;background:var(--brand-rose);color:#fff;font:600 11px/18px var(--font-body);text-align:center;padding:0 4px">{{ c.unread }}</span></sc-if></button>
+</sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ c.headerBack }}">
+<div style="height:56px;flex:none;display:flex;align-items:center;gap:2px;padding:0 8px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);box-shadow:0 1px 2px rgba(0,0,0,.05);position:relative;z-index:2">
+<button onClick="{{ c.back }}" aria-label="Back" style="width:44px;height:44px;border:none;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text-strong)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<span style="font:700 18px/24px var(--font-display);color:var(--text-strong);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.title }}</span>
+</div>
+</sc-if>
+<div ref="{{ cRef }}" class="phone-scroll" style="flex:1;overflow-y:auto;overflow-x:hidden;position:relative;display:flex;flex-direction:column">
+
+<sc-if value="{{ c.sc.welcome }}">
+<div data-screen-label="C Welcome" style="position:relative;flex:1;min-height:100%;display:flex;flex-direction:column;justify-content:flex-end;background:#111827">
+<img src="assets/hero-home.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.88) 100%)"></div>
+<div style="position:relative;padding:0 24px 40px;display:flex;flex-direction:column;gap:18px">
+<img src="assets/logo.webp" alt="Sonshine Hollistic" style="width:132px;background:#fff;border-radius:12px;padding:8px 12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.2)">
+<h1 style="margin:0;font:700 36px/42px var(--font-display);color:#fff;text-wrap:pretty">Livingston’s Premier Boutique Yoga Studio</h1>
+<p style="margin:0;font:400 16px/24px var(--font-body);color:#fff">Book classes, manage your passes and explore sound healing, reiki and workshops at Barden House.</p>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:6px">
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.startRegister }}" hint-size="100%,48px">Create an Account</x-import>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.GlassButton" onClick="{{ c.startSignin }}" style="width:100%" hint-size="100%,48px">Sign In</x-import>
+<button onClick="{{ c.browseGuest }}" style="border:none;background:none;color:#fff;font:500 15px/24px var(--font-body);text-decoration:underline;cursor:pointer;padding:10px">Browse the timetable as a guest</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ c.sc.auth }}">
+<div data-screen-label="C Auth" style="padding:20px 20px 40px;display:flex;flex-direction:column;gap:18px;background:#fff;flex:1">
+<div role="tablist" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--surface-sunken);border-radius:10px;padding:4px">
+<button role="tab" onClick="{{ c.setSignin }}" style="height:40px;border:none;border-radius:8px;cursor:pointer;font:600 14px/20px var(--font-body);background:{{ c.segIn.bg }};color:{{ c.segIn.fg }}">Sign In</button>
+<button role="tab" onClick="{{ c.setRegister }}" style="height:40px;border:none;border-radius:8px;cursor:pointer;font:600 14px/20px var(--font-body);background:{{ c.segUp.bg }};color:{{ c.segUp.fg }}">Create Account</button>
+</div>
+<sc-if value="{{ c.isSignin }}">
+<div style="display:flex;flex-direction:column;gap:16px">
+<div><h1 style="margin:0 0 4px;font:700 28px/34px var(--font-display);color:var(--text-strong)">Welcome Back</h1><p style="margin:0;font:400 15px/22px var(--font-body);color:var(--text-muted)">Sign in to book classes and manage your passes.</p></div>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Email address<input type="email" autocomplete="email" value="{{ c.cf.email }}" onChange="{{ c.cfOn.email }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 14px;font:400 16px/24px var(--font-body);color:var(--text-strong);outline-color:#EC0F8C"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Password<input type="password" autocomplete="current-password" value="{{ c.cf.pw }}" onChange="{{ c.cfOn.pw }}" placeholder="demo1234" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 14px;font:400 16px/24px var(--font-body);color:var(--text-strong);outline-color:#EC0F8C"></label>
+<button onClick="{{ c.forgot }}" style="align-self:flex-start;border:none;background:none;padding:0;color:var(--brand-rose);font:600 14px/20px var(--font-body);cursor:pointer">Forgotten your password?</button>
+<sc-if value="{{ c.hasAuthErr }}"><div role="alert" style="font:500 14px/20px var(--font-body);color:#991B1B;background:#FEE2E2;border-radius:8px;padding:10px 12px">{{ c.authErr }}</div></sc-if>
+<sc-if value="{{ c.hasAuthNote }}"><div role="status" style="font:400 14px/20px var(--font-body);color:var(--text-body);background:var(--surface-blush);border-radius:8px;padding:10px 12px">{{ c.authNote }}</div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.submitSignin }}" hint-size="100%,48px">Sign In</x-import>
+</div>
+</sc-if>
+<sc-if value="{{ c.isRegister }}">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div><h1 style="margin:0 0 4px;font:700 28px/34px var(--font-display);color:var(--text-strong)">Join Our Community</h1><p style="margin:0;font:400 15px/22px var(--font-body);color:var(--text-muted)">Whether you’re a seasoned yogi or stepping onto the mat for the first time.</p></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">First name<input autocomplete="given-name" value="{{ c.cf.first }}" onChange="{{ c.cfOn.first }}" style="width:100%;height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 16px/24px var(--font-body);outline-color:#EC0F8C"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Last name<input autocomplete="family-name" value="{{ c.cf.last }}" onChange="{{ c.cfOn.last }}" style="width:100%;height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 16px/24px var(--font-body);outline-color:#EC0F8C"></label>
+</div>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Email address<input type="email" autocomplete="email" value="{{ c.cf.email }}" onChange="{{ c.cfOn.email }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 14px;font:400 16px/24px var(--font-body);outline-color:#EC0F8C"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Password<input type="password" autocomplete="new-password" value="{{ c.cf.pw }}" onChange="{{ c.cfOn.pw }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 14px;font:400 16px/24px var(--font-body);outline-color:#EC0F8C"><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">At least 8 characters</span></label>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Confirm password<input type="password" autocomplete="new-password" value="{{ c.cf.pw2 }}" onChange="{{ c.cfOn.pw2 }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 14px;font:400 16px/24px var(--font-body);outline-color:#EC0F8C"></label>
+<label style="display:flex;gap:10px;align-items:flex-start;font:400 14px/20px var(--font-body);color:var(--text-body);cursor:pointer"><input type="checkbox" checked="{{ c.cf.terms }}" onChange="{{ c.cfOn.terms }}" style="width:20px;height:20px;accent-color:#EC0F8C;margin:0;flex:none"><span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>. Marketing emails are optional and can be chosen later.</span></label>
+<sc-if value="{{ c.hasAuthErr }}"><div role="alert" style="font:500 14px/20px var(--font-body);color:#991B1B;background:#FEE2E2;border-radius:8px;padding:10px 12px">{{ c.authErr }}</div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.submitRegister }}" hint-size="100%,48px">Create Account</x-import>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ c.sc.home }}">
+<div data-screen-label="C Home" style="display:flex;flex-direction:column;gap:28px;padding:20px 0 32px">
+<div style="padding:0 20px;display:flex;flex-direction:column;gap:4px">
+<span style="font:500 13px/20px var(--font-body);color:var(--text-subtle)">{{ c.todayLabel }}</span>
+<h1 style="margin:0;font:700 28px/34px var(--font-display);color:var(--text-strong)">{{ c.greet }}</h1>
+</div>
+<sc-if value="{{ c.needsVerify }}">
+<div style="margin:0 20px;background:#fff;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08)"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">Please verify your email address</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">We’ve sent a link to {{ c.user.email }}.</span><div style="display:flex;gap:8px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="outline" onClick="{{ c.resendVerify }}" hint-size="80px,36px">Resend</x-import><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ c.verify }}" hint-size="140px,36px" style="background:var(--color-rose-49)">Mark Verified (Demo)</x-import></div></div>
+</sc-if>
+<sc-if value="{{ c.guest }}">
+<div style="margin:0 20px;border-radius:16px;overflow:hidden;position:relative;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 20px 25px -5px rgba(0,0,0,.1)">
+<img src="assets/studio-mats.png" alt="The studio at Barden House" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.8))"></div>
+<div style="position:relative;padding:20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start"><span style="font:700 22px/28px var(--font-display);color:#fff">Find your class, book in seconds</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.GlassButton" onClick="{{ c.go.timetable }}" hint-size="200px,48px">View Class Timetable</x-import></div>
+</div>
+</sc-if>
+<sc-if value="{{ c.hasNext }}">
+<div style="margin:0 20px;border-radius:16px;padding:20px;background:var(--brand-gradient);color:#fff;display:flex;flex-direction:column;gap:10px;box-shadow:0 20px 25px -5px rgba(236,15,140,.25)">
+<span style="align-self:flex-start;font:600 11px/18px var(--font-body);letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.2);border-radius:6px;padding:2px 8px">Your Next Class</span>
+<span style="font:700 24px/30px var(--font-display)">{{ c.next.name }}</span>
+<div style="display:flex;flex-direction:column;gap:2px;font:400 14px/20px var(--font-body)"><span style="font-weight:600">{{ c.next.date }} · {{ c.next.time }}</span><span>with {{ c.next.ins }} · {{ c.next.loc }}</span><span>✓ Confirmed · {{ c.next.pay }}</span></div>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.GlassButton" onClick="{{ c.next.open }}" style="align-self:flex-start;margin-top:4px" hint-size="160px,48px">View Booking</x-import>
+</div>
+</sc-if>
+<sc-if value="{{ c.noNext }}"><sc-if value="{{ c.signedIn }}">
+<div style="margin:0 20px;border-radius:16px;padding:20px;background:#fff;display:flex;flex-direction:column;gap:10px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1)"><span style="font:600 20px/28px var(--font-display);color:var(--brand-rose)">Nothing booked yet</span><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">Whether you want to chill out or work out, we have a class for you.</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.go.timetable }}" hint-size="100%,48px">View Class Timetable</x-import></div>
+</sc-if></sc-if>
+<sc-if value="{{ c.hasPass }}">
+<div onClick="{{ c.go.passes }}" role="button" tabindex="0" style="margin:0 20px;background:#fff;border-radius:12px;padding:16px;display:flex;align-items:center;gap:16px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);cursor:pointer">
+<div style="width:64px;height:64px;border-radius:50%;background:var(--surface-blush-strong);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none"><span style="font:700 24px/26px var(--font-display);color:var(--brand-rose)">{{ c.passSum.left }}</span><span style="font:500 10px/12px var(--font-body);color:var(--brand-rose-ink)">left</span></div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px"><span style="font:600 16px/22px var(--font-body);color:var(--text-strong)">{{ c.passSum.name }}</span><div style="height:6px;border-radius:3px;background:var(--surface-sunken);overflow:hidden"><div style="height:100%;width:{{ c.passSum.pct }};background:var(--brand-gradient)"></div></div><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">{{ c.passSum.left }} of {{ c.passSum.total }} classes · expires {{ c.passSum.expires }} {{ c.passSum.more }}</span></div>
+</div>
+</sc-if>
+<sc-if value="{{ c.noPassSigned }}">
+<div style="margin:0 20px;background:#fff;border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1)"><div style="display:flex;flex-direction:column;gap:2px"><span style="font:600 15px/22px var(--font-body);color:var(--text-strong)">No active class pass</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">Save on regular classes with a pass.</span></div><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ c.go.passes }}" hint-size="92px,36px" style="background:var(--color-rose-49)">View Passes</x-import></div>
+</sc-if>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="padding:0 20px;display:flex;align-items:baseline;justify-content:space-between"><h2 style="margin:0;font:700 22px/28px var(--font-display);color:var(--text-strong)">Coming Up</h2><button onClick="{{ c.go.timetable }}" style="border:none;background:none;color:var(--brand-rose);font:600 14px/20px var(--font-body);cursor:pointer;padding:8px 0">Full Timetable</button></div>
+<div class="hscroll" style="display:flex;gap:12px;overflow-x:auto;padding:4px 20px 16px;scroll-snap-type:x mandatory">
+<sc-for list="{{ c.upcoming }}" as="u" hint-placeholder-count="3">
+<div onClick="{{ u.open }}" role="button" tabindex="0" style="width:200px;flex:none;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);cursor:pointer;scroll-snap-align:start;display:flex;flex-direction:column">
+<img src="{{ u.img }}" alt="" style="width:100%;height:96px;object-fit:cover">
+<div style="padding:12px;display:flex;flex-direction:column;gap:4px;flex:1">
+<span style="font:600 12px/16px var(--font-body);color:var(--brand-rose)">{{ u.dateLabel }} · {{ u.time }}</span>
+<span style="font:600 16px/21px var(--font-display);color:var(--text-heading)">{{ u.name }}</span>
+<span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">with {{ u.insName }}</span>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px"><span style="font:500 12px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ u.spaceBg }};color:{{ u.spaceFg }}">{{ u.spaceLabel }}</span><sc-if value="{{ u.booked }}"><span style="font:600 12px/16px var(--font-body);color:var(--brand-rose)">{{ u.bookedLabel }}</span></sc-if></div>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{ c.hasFeatured }}">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="padding:0 20px;display:flex;align-items:baseline;justify-content:space-between"><h2 style="margin:0;font:700 22px/28px var(--font-display);color:var(--text-strong)">Workshops &amp; Events</h2><button onClick="{{ c.go.events }}" style="border:none;background:none;color:var(--brand-rose);font:600 14px/20px var(--font-body);cursor:pointer;padding:8px 0">See All</button></div>
+<div class="hscroll" style="display:flex;gap:12px;overflow-x:auto;padding:4px 20px 16px">
+<sc-for list="{{ c.featured }}" as="ev" hint-placeholder-count="2">
+<div onClick="{{ ev.open }}" role="button" tabindex="0" style="width:280px;height:170px;flex:none;border-radius:16px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:flex;flex-direction:column;justify-content:flex-end">
+<img src="{{ ev.img }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.85))"></div>
+<div style="position:relative;padding:14px;display:flex;flex-direction:column;gap:2px"><span style="font:600 12px/16px var(--font-body);color:#fff">{{ ev.dateLabel }}</span><span style="font:700 18px/23px var(--font-display);color:#fff">{{ ev.name }}</span><span style="font:500 12px/16px var(--font-body);color:#fff">{{ ev.priceLabel }} · {{ ev.host }}</span></div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<div style="padding:0 20px;display:flex;flex-direction:column;gap:12px">
+<h2 style="margin:0;font:700 22px/28px var(--font-display);color:var(--text-strong)">Discover Your Practice</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<button onClick="{{ c.go.services }}" style="height:120px;border:none;border-radius:12px;overflow:hidden;position:relative;cursor:pointer;padding:0;display:flex;align-items:flex-end;box-shadow:0 4px 6px -1px rgba(0,0,0,.1)"><img src="{{ c.img.bowl }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75))"></span><span style="position:relative;padding:12px;font:700 16px/20px var(--font-display);color:#fff;text-align:left">Sound Healing &amp; Reiki</span></button>
+<button onClick="{{ c.go.team }}" style="height:120px;border:none;border-radius:12px;overflow:hidden;position:relative;cursor:pointer;padding:0;display:flex;align-items:flex-end;box-shadow:0 4px 6px -1px rgba(0,0,0,.1)"><img src="assets/hero-classes.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75))"></span><span style="position:relative;padding:12px;font:700 16px/20px var(--font-display);color:#fff;text-align:left">Meet the Team</span></button>
+<button onClick="{{ c.go.timetable }}" style="height:120px;border:none;border-radius:12px;overflow:hidden;position:relative;cursor:pointer;padding:0;display:flex;align-items:flex-end;box-shadow:0 4px 6px -1px rgba(0,0,0,.1)"><img src="assets/kids-bigger.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75))"></span><span style="position:relative;padding:12px;font:700 16px/20px var(--font-display);color:#fff;text-align:left">Kids &amp; Teens</span></button>
+<button onClick="{{ c.go.studio }}" style="height:120px;border:none;border-radius:12px;overflow:hidden;position:relative;cursor:pointer;padding:0;display:flex;align-items:flex-end;box-shadow:0 4px 6px -1px rgba(0,0,0,.1)"><img src="assets/studio-exterior.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75))"></span><span style="position:relative;padding:12px;font:700 16px/20px var(--font-display);color:#fff;text-align:left">Our Studio</span></button>
+</div>
+</div>
+<div style="margin:0 20px;background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<button onClick="{{ c.go.studio }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Location &amp; Directions<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ c.go.policy }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Booking &amp; Cancellation Policy<span style="color:var(--brand-rose)">›</span></button>
+<div style="padding:14px 16px;display:flex;flex-wrap:wrap;gap:8px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="whatsapp" href="{{ c.waSon }}" target="_blank" hint-size="140px,36px" style="background:var(--color-spring-green-49)">WhatsApp Son</x-import><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="whatsapp" href="{{ c.waRuth }}" target="_blank" hint-size="140px,36px" style="background:var(--color-spring-green-49)">WhatsApp Ruth</x-import></div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ c.sc.timetable }}">
+<div data-screen-label="C Timetable" style="display:flex;flex-direction:column;padding-bottom:28px">
+<div style="background:#fff;padding:16px 0 12px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(0,0,0,.05)">
+<div style="padding:0 20px;display:flex;align-items:center;gap:8px">
+<div style="flex:1;position:relative"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" style="position:absolute;left:12px;top:13px"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg><input type="search" aria-label="Search classes and instructors" placeholder="Search classes or instructors" value="{{ c.q }}" onChange="{{ c.onQ }}" style="width:100%;height:44px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px 0 38px;font:400 15px/22px var(--font-body);outline-color:#EC0F8C"></div>
+<button onClick="{{ c.openFilters }}" style="height:44px;padding:0 14px;border-radius:8px;border:1px solid {{ c.filterBtn.bd }};background:{{ c.filterBtn.bg }};color:{{ c.filterBtn.fg }};font:600 14px/20px var(--font-body);cursor:pointer;white-space:nowrap">{{ c.filterLabel }}</button>
+</div>
+<div class="hscroll" style="display:flex;gap:8px;overflow-x:auto;padding:2px 20px">
+<sc-for list="{{ c.days }}" as="d" hint-placeholder-count="7">
+<button onClick="{{ d.pick }}" aria-label="{{ d.label }}" style="width:52px;height:68px;flex:none;border-radius:12px;border:1px solid #E5E7EB;background:{{ d.bg }};cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0"><span style="font:500 11px/14px var(--font-body);color:{{ d.sub }}">{{ d.dow }}</span><span style="font:700 20px/24px var(--font-display);color:{{ d.fg }}">{{ d.num }}</span><span style="width:5px;height:5px;border-radius:50%;background:{{ d.dot }}"></span></button>
+</sc-for>
+</div>
+<div class="hscroll" style="display:flex;gap:8px;overflow-x:auto;padding:2px 20px">
+<sc-for list="{{ c.cats }}" as="k" hint-placeholder-count="5">
+<button onClick="{{ k.pick }}" style="height:34px;flex:none;padding:0 14px;border-radius:999px;border:1px solid {{ k.bd }};background:{{ k.bg }};color:{{ k.fg }};font:500 13px/20px var(--font-body);cursor:pointer;white-space:nowrap">{{ k.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="margin:16px 20px 0;background:var(--brand-rose);border-radius:8px 8px 0 0;padding:10px 16px;font:700 16px/24px var(--font-display);color:#fff;letter-spacing:.02em">{{ c.dayTitle }}</div>
+<div style="margin:0 20px;background:var(--surface-cream);border-radius:0 0 12px 12px;padding:12px;display:flex;flex-direction:column;gap:10px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08)">
+<sc-for list="{{ c.list }}" as="it" hint-placeholder-count="4">
+<div onClick="{{ it.open }}" role="button" tabindex="0" style="display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:14px 12px;box-shadow:0 1px 3px rgba(0,0,0,.08);cursor:pointer;opacity:{{ it.opacity }}">
+<div style="width:58px;flex:none;display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--border-default);padding-right:8px"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ it.time }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">{{ it.durLabel }}</span></div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+<sc-if value="{{ it.showDate }}"><span style="font:600 11px/14px var(--font-body);color:var(--brand-rose);text-transform:uppercase;letter-spacing:.04em">{{ it.dateLabel }}</span></sc-if>
+<span style="font:600 16px/21px var(--font-display);color:var(--text-heading)">{{ it.name }}</span>
+<span style="font:400 12px/17px var(--font-body);color:var(--text-muted)">with {{ it.insName }} · {{ it.format }}</span>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:3px"><span style="font:500 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:var(--surface-blush);color:var(--brand-rose-ink)">{{ it.priceLabel }}</span><span style="font:500 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ it.spaceBg }};color:{{ it.spaceFg }}">{{ it.spaceLabel }}</span></div>
+</div>
+<div style="flex:none;display:flex;align-items:center">
+<sc-if value="{{ it.booked }}"><span style="font:600 12px/16px var(--font-body);color:var(--brand-rose);max-width:64px;text-align:right">{{ it.bookedLabel }}</span></sc-if>
+<sc-if value="{{ it.canQuick }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" onClick="{{ it.quick }}" width="{{ 76 }}" hint-size="76px,36px" style="background:var(--color-rose-60)">{{ it.quickLabel }}</x-import></sc-if>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{ c.listEmpty }}">
+<div style="padding:28px 12px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center"><span style="font:600 18px/24px var(--font-display);color:var(--text-heading)">Nothing here</span><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">{{ c.emptyText }}</span><sc-if value="{{ c.hasAnyFilter }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="outline" onClick="{{ c.resetFilters }}" hint-size="120px,36px">Clear Filters</x-import></sc-if></div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ c.sc.cls }}">
+<div data-screen-label="C Class Detail" style="display:flex;flex-direction:column;min-height:100%">
+<div style="position:relative;height:220px;flex:none"><img src="{{ c.s.img }}" alt="" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.7))"></div><span style="position:absolute;left:20px;bottom:16px;font:600 12px/20px var(--font-body);text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--brand-rose);border-radius:6px;padding:2px 10px">{{ c.s.cat }}</span></div>
+<div style="padding:20px;display:flex;flex-direction:column;gap:18px;flex:1">
+<div style="display:flex;flex-direction:column;gap:10px"><h1 style="margin:0;font:700 28px/34px var(--font-display);color:var(--text-strong)">{{ c.s.name }}</h1>
+<button onClick="{{ c.s.openIns }}" style="align-self:flex-start;display:flex;align-items:center;gap:10px;border:none;background:none;padding:0;cursor:pointer;text-align:left"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ c.s.insIni }}" size="{{ 40 }}" hint-size="40px,40px"></x-import><span style="display:flex;flex-direction:column"><span style="font:600 15px/20px var(--font-body);color:var(--text-strong)">with {{ c.s.insName }}</span><span style="font:400 12px/16px var(--font-body);color:var(--brand-rose)">{{ c.s.insRole }} ›</span></span></button></div>
+<sc-if value="{{ c.s.booked }}"><div role="status" style="background:var(--surface-blush);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px"><span style="font:600 15px/22px var(--font-body);color:var(--brand-rose-ink)">✓ You’re booked on this class</span><span style="font:400 13px/18px var(--font-body);color:var(--text-body)">{{ c.s.bookedPay }}</span></div></sc-if>
+<sc-if value="{{ c.s.hasWaitMsg }}"><div role="status" style="background:var(--surface-blush);border-radius:12px;padding:14px 16px;font:500 14px/20px var(--font-body);color:var(--brand-rose-ink)">{{ c.s.waitMsg }}</div></sc-if>
+<div style="background:#fff;border-radius:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:grid;grid-template-columns:1fr 1fr">
+<div style="padding:14px 16px;border-bottom:1px solid var(--border-default);border-right:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Date</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.s.dateLong }}</div></div>
+<div style="padding:14px 16px;border-bottom:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Time</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.s.timeRange }}</div></div>
+<div style="padding:14px 16px;border-bottom:1px solid var(--border-default);border-right:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Where</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.s.loc }}</div></div>
+<div style="padding:14px 16px;border-bottom:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Format</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.s.format }} · {{ c.s.durLabel }}</div></div>
+<div style="padding:14px 16px;border-right:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Level</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.s.level }}</div></div>
+<div style="padding:14px 16px"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Availability</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.s.spaceLabel }}</div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font:500 12px/16px var(--font-body);color:var(--text-subtle)"><span>{{ c.s.availLabel }}</span></div><div style="height:6px;border-radius:3px;background:var(--surface-sunken);overflow:hidden"><div style="height:100%;width:{{ c.s.pct }};background:var(--brand-gradient)"></div></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:600 20px/28px var(--font-display);color:var(--brand-rose)">About This Class</h2><p style="margin:0;font:400 15px/24px var(--font-body);color:var(--text-body)">{{ c.s.desc }}</p></div>
+<div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:600 20px/28px var(--font-display);color:var(--brand-rose)">Accessibility</h2><p style="margin:0;font:400 14px/22px var(--font-body);color:var(--text-body)">{{ c.s.access }}</p></div>
+<sc-if value="{{ c.s.isOnline }}"><div style="background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:6px"><span style="font:600 15px/22px var(--font-body);color:var(--text-strong)">Joining online</span><sc-if value="{{ c.s.showLink }}"><a href="{{ c.s.link }}" target="_blank" style="font:600 14px/20px var(--font-body);word-break:break-all">{{ c.s.link }}</a><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">Demo link. Only visible to customers with a confirmed booking.</span></sc-if><sc-if value="{{ c.s.hideLink }}"><span style="font:400 13px/20px var(--font-body);color:var(--text-muted)">Your private joining link appears here once your booking is confirmed.</span></sc-if></div></sc-if>
+<div style="background:var(--surface-blush);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px"><span style="font:600 15px/22px var(--font-body);color:var(--brand-rose)">Price &amp; Passes</span><span style="font:400 14px/20px var(--font-body);color:var(--text-body)">{{ c.s.priceLine }} · {{ c.s.passLine }}</span><span style="font:600 15px/22px var(--font-body);color:var(--brand-rose);margin-top:6px">Cancellation</span><span style="font:400 13px/20px var(--font-body);color:var(--text-body)">{{ c.s.policy }}</span></div>
+</div>
+<div style="position:sticky;bottom:0;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-top:1px solid var(--border-default);padding:12px 20px 14px;display:flex;align-items:center;gap:14px">
+<div style="display:flex;flex-direction:column;flex:none;max-width:120px"><span style="font:700 16px/20px var(--font-body);color:var(--brand-rose)">{{ c.bar.note }}</span></div>
+<div style="flex:1">
+<sc-if value="{{ c.bar.solid }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.bar.act }}" hint-size="100%,48px">{{ c.bar.label }}</x-import></sc-if>
+<sc-if value="{{ c.bar.outline }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ c.bar.act }}" hint-size="100%,48px">{{ c.bar.label }}</x-import></sc-if>
+<sc-if value="{{ c.bar.dis }}"><div aria-disabled="true" style="height:48px;border-radius:8px;background:var(--surface-sunken);color:var(--text-subtle);display:flex;align-items:center;justify-content:center;font:600 16px/24px var(--font-body)">{{ c.bar.label }}</div></sc-if>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ c.sc.confirm }}">
+<div data-screen-label="C Booking Confirmed" style="padding:36px 20px 32px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;background:#fff;flex:1">
+<div style="width:84px;height:84px;border-radius:50%;background:var(--surface-blush-strong);display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#EC0F8C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></div>
+<h1 role="status" style="margin:0;font:700 30px/36px var(--font-display);color:var(--text-strong)">You’re Booked!</h1>
+<p style="margin:0;font:400 15px/22px var(--font-body);color:var(--text-muted)">We can’t wait to see you on the mat.</p>
+<div style="width:100%;text-align:left;background:#fff;border-radius:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);padding:18px;display:flex;flex-direction:column;gap:8px">
+<span style="font:600 20px/26px var(--font-display);color:var(--brand-rose)">{{ c.conf.name }}</span>
+<span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.conf.when }}</span>
+<span style="font:400 14px/20px var(--font-body);color:var(--text-body)">with {{ c.conf.ins }} · {{ c.conf.loc }}</span>
+<div style="height:1px;background:var(--border-default);margin:4px 0"></div>
+<span style="font:400 13px/20px var(--font-body);color:var(--text-body)">{{ c.conf.pay }}</span>
+<span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">Reference {{ c.conf.ref }}</span>
+<sc-if value="{{ c.conf.isOnline }}"><a href="{{ c.conf.link }}" target="_blank" style="font:600 13px/20px var(--font-body);word-break:break-all">Joining link: {{ c.conf.link }}</a></sc-if>
+</div>
+<div style="width:100%;text-align:left;background:var(--surface-blush);border-radius:12px;padding:12px 14px;font:400 13px/20px var(--font-body);color:var(--text-body)">{{ c.conf.policy }}</div>
+<div style="width:100%;display:flex;flex-direction:column;gap:10px;margin-top:4px">
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.confDone }}" hint-size="100%,48px">View My Bookings</x-import>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ c.addCal }}" hint-size="100%,48px">Add to Calendar</x-import>
+<button onClick="{{ c.confMore }}" style="border:none;background:none;color:var(--brand-rose);font:600 15px/24px var(--font-body);cursor:pointer;padding:8px">Book Another Class</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ c.sc.bookings }}">
+<div data-screen-label="C My Bookings" style="padding:20px 20px 28px;display:flex;flex-direction:column;gap:16px">
+<h1 style="margin:0;font:700 28px/34px var(--font-display);color:var(--text-strong)">My Bookings</h1>
+<sc-if value="{{ c.guest }}">
+<div style="background:#fff;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1)"><span style="font:600 18px/24px var(--font-display);color:var(--text-heading)">Sign in to see your bookings</span><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">Your upcoming classes, waitlists and history live here.</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.go.signin }}" hint-size="100%,48px">Sign In</x-import></div>
+</sc-if>
+<sc-if value="{{ c.signedIn }}">
+<div class="hscroll" style="display:flex;gap:8px;overflow-x:auto;margin:0 -20px;padding:0 20px">
+<sc-for list="{{ c.btabs }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" style="height:36px;flex:none;padding:0 14px;border-radius:999px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};font:500 13px/20px var(--font-body);cursor:pointer;white-space:nowrap">{{ t.label }}</button></sc-for>
+</div>
+<sc-for list="{{ c.blist }}" as="b" hint-placeholder-count="2">
+<div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:12px">
+<div onClick="{{ b.open }}" role="button" tabindex="0" style="display:flex;gap:14px;cursor:pointer">
+<div style="width:56px;height:64px;flex:none;border-radius:10px;background:var(--surface-blush);display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font:500 11px/14px var(--font-body);color:var(--brand-rose-ink)">{{ b.dow }}</span><span style="font:700 22px/26px var(--font-display);color:var(--brand-rose)">{{ b.day }}</span><span style="font:600 10px/12px var(--font-body);color:var(--brand-rose-ink)">{{ b.mon }}</span></div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><span style="font:600 16px/21px var(--font-display);color:var(--text-heading)">{{ b.name }}</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">{{ b.time }} · {{ b.ins }}</span><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:2px"><span style="font:600 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ b.statusBg }};color:{{ b.statusFg }}">{{ b.statusLabel }}</span><sc-if value="{{ b.hasPay }}"><span style="font:400 11px/20px var(--font-body);color:var(--text-subtle)">{{ b.pay }}</span></sc-if></div></div>
+</div>
+<sc-if value="{{ b.isWait }}"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font:500 13px/18px var(--font-body);color:var(--text-body)">{{ b.waitLabel }}</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="outline" onClick="{{ b.leave }}" hint-size="110px,36px">Leave Waitlist</x-import></div></sc-if>
+<sc-if value="{{ b.isOffered }}"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--surface-blush);border-radius:8px;padding:8px 10px"><span style="font:600 13px/18px var(--font-body);color:var(--brand-rose-ink)">A place is free! {{ b.offerLabel }}</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ b.claim }}" hint-size="96px,36px" style="background:var(--color-rose-49)">Claim Place</x-import></div></sc-if>
+<sc-if value="{{ b.canCancel }}"><div style="display:flex;gap:8px;justify-content:flex-end"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="outline" onClick="{{ b.cancel }}" hint-size="80px,36px">Cancel</x-import><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="soft" onClick="{{ b.open }}" hint-size="80px,36px" style="background:var(--color-rose-60)">Details</x-import></div></sc-if>
+</div>
+</sc-for>
+<sc-for list="{{ c.evList }}" as="eb" hint-placeholder-count="0">
+<div onClick="{{ eb.open }}" role="button" tabindex="0" style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:flex;gap:14px;cursor:pointer">
+<div style="width:56px;height:64px;flex:none;border-radius:10px;background:var(--brand-gradient);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff"><span style="font:700 22px/26px var(--font-display)">{{ eb.day }}</span><span style="font:600 10px/12px var(--font-body)">{{ eb.mon }}</span></div>
+<div style="display:flex;flex-direction:column;gap:3px"><span style="font:600 11px/14px var(--font-body);color:var(--brand-rose);text-transform:uppercase;letter-spacing:.05em">Event</span><span style="font:600 16px/21px var(--font-display);color:var(--text-heading)">{{ eb.name }}</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">{{ eb.time }} · {{ eb.pay }}</span></div>
+</div>
+</sc-for>
+<sc-if value="{{ c.hasReqList }}">
+<h2 style="margin:8px 0 0;font:600 20px/28px var(--font-display);color:var(--brand-rose)">Appointment Requests</h2>
+<sc-for list="{{ c.reqList }}" as="r" hint-placeholder-count="1"><div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px"><span style="font:600 15px/22px var(--font-body);color:var(--text-strong)">{{ r.name }}</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">{{ r.when }}</span><span style="align-self:flex-start;font:600 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ r.statusBg }};color:{{ r.statusFg }}">{{ r.statusLabel }}</span></div></sc-for>
+</sc-if>
+<sc-if value="{{ c.bEmpty }}"><div style="background:#fff;border-radius:12px;padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;box-shadow:0 4px 6px -1px rgba(0,0,0,.08)"><span style="font:600 18px/24px var(--font-display);color:var(--text-heading)">{{ c.bEmptyText }}</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ c.go.timetable }}" hint-size="140px,36px" style="background:var(--color-rose-49)">Browse Timetable</x-import></div></sc-if>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.passes }}">
+<div data-screen-label="C Passes" style="padding:20px 20px 28px;display:flex;flex-direction:column;gap:18px">
+<h1 style="margin:0;font:700 28px/34px var(--font-display);color:var(--text-strong)">My Passes</h1>
+<sc-for list="{{ c.wallet }}" as="w" hint-placeholder-count="1">
+<div style="border-radius:16px;padding:20px;background:var(--brand-gradient);color:#fff;display:flex;flex-direction:column;gap:12px;box-shadow:0 20px 25px -5px rgba(236,15,140,.25)">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><div style="display:flex;flex-direction:column;gap:2px"><span style="font:700 22px/28px var(--font-display)">{{ w.name }}</span><span style="font:400 13px/18px var(--font-body)">{{ w.elig }}</span></div><div style="text-align:right"><div style="font:700 36px/38px var(--font-display)">{{ w.left }}</div><div style="font:500 12px/16px var(--font-body)">of {{ w.total }} left</div></div></div>
+<div style="height:6px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden"><div style="height:100%;width:{{ w.pct }};background:#fff"></div></div>
+<div style="display:flex;justify-content:space-between;font:500 12px/16px var(--font-body)"><span>Bought {{ w.bought }}</span><span>Expires {{ w.expires }}</span></div>
+</div>
+</sc-for>
+<sc-if value="{{ c.noWallet }}"><div style="background:#fff;border-radius:12px;padding:18px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);font:400 14px/20px var(--font-body);color:var(--text-muted)">You don’t have an active pass. Choose one below to save on regular classes.</div></sc-if>
+<h2 style="margin:6px 0 0;font:700 22px/28px var(--font-display);color:var(--text-strong)">Buy a Pass</h2>
+<sc-for list="{{ c.products }}" as="p" hint-placeholder-count="3">
+<div style="background:#fff;border-radius:12px;padding:18px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font:600 20px/26px var(--font-display);color:var(--text-heading)">{{ p.name }}</span><span style="font:700 22px/28px var(--font-display);color:var(--brand-rose)">{{ p.price }}</span></div>
+<span style="font:400 14px/20px var(--font-body);color:var(--text-body)">{{ p.desc }}</span>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><span style="font:500 11px/22px var(--font-body);padding:0 8px;border-radius:6px;background:var(--surface-blush);color:var(--brand-rose-ink)">{{ p.credits }}</span><span style="font:500 11px/22px var(--font-body);padding:0 8px;border-radius:6px;background:var(--surface-sunken);color:var(--text-body)">{{ p.validity }}</span><span style="font:500 11px/22px var(--font-body);padding:0 8px;border-radius:6px;background:var(--surface-sunken);color:var(--text-body)">{{ p.per }}</span></div>
+<span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">Valid for: {{ p.elig }}</span>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ p.buy }}" hint-size="100%,48px">Buy {{ p.name }}</x-import>
+</div>
+</sc-for>
+<sc-if value="{{ c.hasLedger }}">
+<h2 style="margin:6px 0 0;font:700 22px/28px var(--font-display);color:var(--text-strong)">Credit History</h2>
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<sc-for list="{{ c.ledger }}" as="l" hint-placeholder-count="3"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border-default)"><div style="display:flex;flex-direction:column;min-width:0"><span style="font:500 14px/20px var(--font-body);color:var(--text-strong)">{{ l.reason }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">{{ l.when }}</span></div><span style="font:700 15px/20px var(--font-body);color:{{ l.fg }};flex:none">{{ l.delta }}</span></div></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ c.hasOld }}">
+<h2 style="margin:6px 0 0;font:600 18px/24px var(--font-display);color:var(--text-muted)">Expired &amp; Used</h2>
+<sc-for list="{{ c.old }}" as="o" hint-placeholder-count="1"><div style="background:#fff;border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column"><span style="font:600 14px/20px var(--font-body);color:var(--text-muted)">{{ o.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">{{ o.state }}</span></div><span style="font:400 12px/20px var(--font-body);color:var(--text-subtle)">{{ o.used }}</span></div></sc-for>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.profile }}">
+<div data-screen-label="C Profile" style="padding:20px 20px 28px;display:flex;flex-direction:column;gap:18px">
+<sc-if value="{{ c.guest }}">
+<div style="background:#fff;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1)"><span style="font:700 22px/28px var(--font-display);color:var(--text-heading)">Join Sonshine Hollistic</span><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">Create an account to book classes, buy passes and request appointments.</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.go.register }}" hint-size="100%,48px">Create an Account</x-import><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ c.go.signin }}" hint-size="100%,48px">Sign In</x-import></div>
+</sc-if>
+<sc-if value="{{ c.signedIn }}">
+<div style="display:flex;align-items:center;gap:14px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ c.user.initials }}" size="{{ 64 }}" hint-size="64px,64px"></x-import><div style="display:flex;flex-direction:column;gap:2px"><span style="font:700 24px/30px var(--font-display);color:var(--text-strong)">{{ c.user.first }} {{ c.user.last }}</span><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">{{ c.user.email }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">Member since {{ c.user.joined }}</span></div></div>
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<span style="padding:14px 16px 6px;font:600 12px/16px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)">Notifications</span>
+<button onClick="{{ c.togRem }}" role="switch" style="min-height:56px;border:none;background:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;cursor:pointer;text-align:left;border-bottom:1px solid var(--border-default)"><span style="display:flex;flex-direction:column"><span style="font:500 15px/20px var(--font-body);color:var(--text-strong)">Class reminders</span><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">Booking confirmations are always sent</span></span><span style="width:46px;height:26px;border-radius:13px;background:{{ c.prefs.rem.bg }};padding:3px;flex:none;display:flex"><span style="width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX({{ c.prefs.rem.x }});transition:transform 150ms"></span></span></button>
+<button onClick="{{ c.togMkt }}" role="switch" style="min-height:56px;border:none;background:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;cursor:pointer;text-align:left"><span style="display:flex;flex-direction:column"><span style="font:500 15px/20px var(--font-body);color:var(--text-strong)">News &amp; offers</span><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">Workshops, events and studio news</span></span><span style="width:46px;height:26px;border-radius:13px;background:{{ c.prefs.mkt.bg }};padding:3px;flex:none;display:flex"><span style="width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX({{ c.prefs.mkt.x }});transition:transform 150ms"></span></span></button>
+</div>
+</sc-if>
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<span style="padding:14px 16px 6px;font:600 12px/16px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)">Studio</span>
+<button onClick="{{ c.go.events }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Workshops &amp; Events<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ c.go.services }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Sound Healing, Reiki &amp; 1:1<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ c.go.team }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Meet the Team<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ c.go.studio }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Location &amp; Contact<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ c.go.policy }}" style="min-height:52px;border:none;background:none;display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Booking &amp; Cancellation Policy<span style="color:var(--brand-rose)">›</span></button>
+</div>
+<sc-if value="{{ fr.mob }}"><button onClick="{{ toOwner }}" style="border:none;background:none;color:var(--text-muted);font:500 13px/20px var(--font-body);cursor:pointer;padding:8px">Studio staff? Open Studio Management</button></sc-if>
+<sc-if value="{{ c.signedIn }}">
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ c.signOut }}" hint-size="100%,48px">Sign Out</x-import>
+<sc-if value="{{ c.delRequested }}"><span style="font:400 13px/18px var(--font-body);color:var(--text-subtle);text-align:center">Account deletion requested — we’ll confirm by email.</span></sc-if>
+<button onClick="{{ c.askDelete }}" style="border:none;background:none;color:var(--text-muted);font:500 13px/20px var(--font-body);text-decoration:underline;cursor:pointer;padding:8px">Request account deletion</button>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.events }}">
+<div data-screen-label="C Events" style="padding:20px 20px 28px;display:flex;flex-direction:column;gap:16px">
+<p style="margin:0;font:400 15px/22px var(--font-body);color:var(--text-body)">Sound baths, special workshops and teacher training at Barden House.</p>
+<sc-for list="{{ c.eventList }}" as="ev" hint-placeholder-count="3">
+<div onClick="{{ ev.open }}" role="button" tabindex="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);cursor:pointer;display:flex;flex-direction:column">
+<img src="{{ ev.img }}" alt="" style="width:100%;height:150px;object-fit:cover">
+<div style="padding:16px;display:flex;flex-direction:column;gap:4px"><span style="font:600 12px/16px var(--font-body);color:var(--brand-rose)">{{ ev.dateLabel }}</span><span style="font:600 19px/25px var(--font-display);color:var(--text-heading)">{{ ev.name }}</span><sc-if value="{{ ev.hasSub }}"><span style="font:500 13px/18px var(--font-body);color:var(--text-body)">{{ ev.sub }}</span></sc-if><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">with {{ ev.host }}</span><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><span style="font:700 16px/22px var(--font-body);color:var(--brand-rose)">{{ ev.priceLabel }}</span><span style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">{{ ev.spaces }}</span></div></div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.event }}">
+<div data-screen-label="C Event Detail" style="display:flex;flex-direction:column;min-height:100%">
+<img src="{{ c.ev.img }}" alt="" style="width:100%;height:220px;object-fit:cover;flex:none">
+<div style="padding:20px;display:flex;flex-direction:column;gap:16px;flex:1">
+<div style="display:flex;flex-direction:column;gap:4px"><h1 style="margin:0;font:700 26px/32px var(--font-display);color:var(--text-strong)">{{ c.ev.name }}</h1><sc-if value="{{ c.ev.hasSub }}"><span style="font:500 15px/22px var(--font-body);color:var(--brand-rose)">{{ c.ev.sub }}</span></sc-if></div>
+<sc-if value="{{ c.ev.booked }}"><div role="status" style="background:var(--surface-blush);border-radius:12px;padding:12px 16px;font:600 14px/20px var(--font-body);color:var(--brand-rose-ink)">✓ You have a place at this event</div></sc-if>
+<div style="background:#fff;border-radius:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:flex;flex-direction:column">
+<div style="padding:12px 16px;border-bottom:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">When</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.ev.dateLabel }} {{ c.ev.timeLabel }}</div></div>
+<div style="padding:12px 16px;border-bottom:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Where</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.ev.venue }}</div></div>
+<div style="padding:12px 16px;border-bottom:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Led by</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.ev.host }}</div></div>
+<div style="padding:12px 16px"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Price</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.ev.priceLine }} <span style="font-weight:400;color:var(--text-muted)">{{ c.ev.spaces }}</span></div><sc-if value="{{ c.ev.hasEarly }}"><div style="font:500 12px/16px var(--font-body);color:var(--brand-rose)">{{ c.ev.early }}</div></sc-if></div>
+</div>
+<p style="margin:0;font:400 15px/24px var(--font-body);color:var(--text-body)">{{ c.ev.desc }}</p>
+<sc-if value="{{ c.ev.hasInfo }}"><p style="margin:0;font:400 14px/22px var(--font-body);color:var(--text-body)">{{ c.ev.info }}</p></sc-if>
+<div style="background:var(--surface-blush);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;font:400 13px/20px var(--font-body);color:var(--text-body)"><sc-if value="{{ c.ev.hasDeadline }}"><span style="font-weight:600;color:var(--brand-rose-ink)">{{ c.ev.deadline }}</span></sc-if><span>{{ c.ev.policy }}</span></div>
+</div>
+<div style="position:sticky;bottom:0;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-top:1px solid var(--border-default);padding:12px 20px 14px">
+<sc-if value="{{ c.evBar.enabled }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.evBar.act }}" hint-size="100%,48px">{{ c.evBar.label }}</x-import></sc-if>
+<sc-if value="{{ c.evBar.dis }}"><div aria-disabled="true" style="height:48px;border-radius:8px;background:var(--surface-sunken);color:var(--text-subtle);display:flex;align-items:center;justify-content:center;font:600 16px/24px var(--font-body)">{{ c.evBar.label }}</div></sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.services }}">
+<div data-screen-label="C Services" style="padding:20px 20px 28px;display:flex;flex-direction:column;gap:16px">
+<p style="margin:0;font:400 15px/22px var(--font-body);color:var(--text-body)">One-to-one treatments to nourish body, mind and soul. Send a request and we’ll be in touch to arrange a time.</p>
+<sc-for list="{{ c.svcList }}" as="s" hint-placeholder-count="3">
+<div onClick="{{ s.open }}" role="button" tabindex="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);cursor:pointer;display:flex">
+<img src="{{ s.img }}" alt="" style="width:110px;object-fit:cover;flex:none">
+<div style="padding:14px;display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font:600 18px/23px var(--font-display);color:var(--text-heading)">{{ s.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">with {{ s.practitioner }} · {{ s.duration }}</span><span style="font:600 13px/18px var(--font-body);color:var(--brand-rose);margin-top:4px">{{ s.price }}</span></div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.service }}">
+<div data-screen-label="C Service Detail" style="display:flex;flex-direction:column;min-height:100%">
+<img src="{{ c.svc.img }}" alt="" style="width:100%;height:220px;object-fit:cover;flex:none">
+<div style="padding:20px;display:flex;flex-direction:column;gap:16px;flex:1">
+<h1 style="margin:0;font:700 26px/32px var(--font-display);color:var(--text-strong)">{{ c.svc.name }}</h1>
+<div style="background:#fff;border-radius:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:flex;flex-direction:column">
+<div style="padding:12px 16px;border-bottom:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">With</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.svc.practitioner }}</div></div>
+<div style="padding:12px 16px;border-bottom:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Duration</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.svc.duration }}</div></div>
+<div style="padding:12px 16px;border-bottom:1px solid var(--border-default)"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Price</div><div style="font:600 14px/20px var(--font-body);color:var(--brand-rose)">{{ c.svc.price }}</div></div>
+<div style="padding:12px 16px"><div style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Where</div><div style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.svc.location }}</div></div>
+</div>
+<p style="margin:0;font:400 15px/24px var(--font-body);color:var(--text-body)">{{ c.svc.desc }}</p>
+<p style="margin:0;font:400 14px/22px var(--font-body);color:var(--text-body)">{{ c.svc.prep }}</p>
+<sc-if value="{{ c.svc.hasCaution }}"><div style="background:#FEF9C3;border-radius:12px;padding:12px 14px;font:400 13px/20px var(--font-body);color:#713F12"><strong>Please note:</strong> {{ c.svc.caution }}</div></sc-if>
+</div>
+<div style="position:sticky;bottom:0;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-top:1px solid var(--border-default);padding:12px 20px 14px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.svc.request }}" hint-size="100%,48px">Request an Appointment</x-import></div>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.team }}">
+<div data-screen-label="C Team" style="padding:20px 20px 28px;display:flex;flex-direction:column;gap:12px">
+<p style="margin:0 0 4px;font:400 15px/22px var(--font-body);color:var(--text-body)">Our welcoming team of instructors, here to support you every step of the way.</p>
+<sc-for list="{{ c.team }}" as="t" hint-placeholder-count="4">
+<div onClick="{{ t.open }}" role="button" tabindex="0" style="background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;gap:14px;align-items:center;cursor:pointer">
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ t.ini }}" size="{{ 48 }}" hint-size="48px,48px"></x-import>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font:600 17px/22px var(--font-display);color:var(--text-heading)">{{ t.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--brand-rose)">{{ t.role }}</span></div>
+<span style="color:var(--brand-rose);font:400 20px/20px var(--font-body)">›</span>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.instructor }}">
+<div data-screen-label="C Instructor" style="padding:24px 20px 28px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ c.insD.ini }}" size="{{ 88 }}" hint-size="88px,88px"></x-import><h1 style="margin:0;font:700 26px/32px var(--font-display);color:var(--text-strong)">{{ c.insD.name }}</h1><span style="font:500 14px/20px var(--font-body);color:var(--brand-rose)">{{ c.insD.role }}</span></div>
+<p style="margin:0;font:400 15px/24px var(--font-body);color:var(--text-body);text-align:center">{{ c.insD.bio }}</p>
+<h2 style="margin:8px 0 0;font:600 20px/28px var(--font-display);color:var(--brand-rose)">Upcoming Classes</h2>
+<sc-for list="{{ c.insD.sessions }}" as="it" hint-placeholder-count="2">
+<div onClick="{{ it.open }}" role="button" tabindex="0" style="display:flex;gap:12px;align-items:center;background:#fff;border-radius:12px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);cursor:pointer">
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font:600 11px/14px var(--font-body);color:var(--brand-rose);text-transform:uppercase">{{ it.dateLabel }} · {{ it.time }}</span><span style="font:600 15px/20px var(--font-display);color:var(--text-heading)">{{ it.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ it.spaceLabel }}</span></div>
+<sc-if value="{{ it.booked }}"><span style="font:600 12px/16px var(--font-body);color:var(--brand-rose)">{{ it.bookedLabel }}</span></sc-if>
+<sc-if value="{{ it.canQuick }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" onClick="{{ it.quick }}" width="{{ 76 }}" hint-size="76px,36px" style="background:var(--color-rose-60)">{{ it.quickLabel }}</x-import></sc-if>
+</div>
+</sc-for>
+<sc-if value="{{ c.insD.none }}"><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">No classes scheduled in the next two weeks.</span></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.studio }}">
+<div data-screen-label="C Studio" style="display:flex;flex-direction:column">
+<img src="assets/studio-exterior.png" alt="Barden House, Livingston" style="width:100%;height:200px;object-fit:cover">
+<div style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<h1 style="margin:0;font:700 26px/32px var(--font-display);color:var(--text-strong)">Barden House, Livingston</h1>
+<p style="margin:0;font:400 15px/24px var(--font-body);color:var(--text-body)">Our serene studio sanctuary in the heart of West Lothian — a welcoming space to breathe, move and connect.</p>
+<div style="background:#fff;border-radius:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);padding:16px;display:flex;flex-direction:column;gap:10px">
+<span style="font:500 12px/16px var(--font-body);color:var(--text-subtle)">Address</span><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ c.studio.address }}</span>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" href="{{ c.mapUrl }}" target="_blank" hint-size="100%,48px">Get Directions</x-import>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><img src="assets/studio-mats.png" alt="The studio" style="width:100%;height:120px;object-fit:cover;border-radius:12px"><img src="assets/studio-buddha.png" alt="Studio details" style="width:100%;height:120px;object-fit:cover;border-radius:12px"></div>
+<div style="background:#fff;border-radius:12px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);padding:16px;display:flex;flex-direction:column;gap:12px">
+<span style="font:600 18px/24px var(--font-display);color:var(--brand-rose)">Get in Touch</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="whatsapp" href="{{ c.waSon }}" target="_blank" hint-size="140px,36px" style="background:var(--color-spring-green-49)">WhatsApp Son</x-import><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="whatsapp" href="{{ c.waRuth }}" target="_blank" hint-size="140px,36px" style="background:var(--color-spring-green-49)">WhatsApp Ruth</x-import></div>
+<a href="{{ c.mailto }}" style="font:500 14px/20px var(--font-body)">{{ c.studio.email }}</a>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.policy }}">
+<div data-screen-label="C Policy" style="padding:20px 20px 28px;display:flex;flex-direction:column;gap:14px">
+<div style="background:#fff;border-radius:12px;padding:18px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:8px"><span style="font:600 20px/26px var(--font-display);color:var(--brand-rose)">Cancelling a Class</span><span style="font:400 14px/22px var(--font-body);color:var(--text-body)">Cancel at least {{ c.cancelHours }} hours before your class starts and your pass credit is returned or your card payment refunded. Later cancellations and no-shows aren’t refunded — exceptions are at management’s discretion, so do get in touch if something has come up.</span></div>
+<div style="background:#fff;border-radius:12px;padding:18px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:8px"><span style="font:600 20px/26px var(--font-display);color:var(--brand-rose)">Waitlists</span><span style="font:400 14px/22px var(--font-body);color:var(--text-body)">When a full class has a cancellation, the first person on the waitlist is offered the place and has {{ c.offerHours }} hours to claim it before it passes to the next person.</span></div>
+<div style="background:#fff;border-radius:12px;padding:18px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:8px"><span style="font:600 20px/26px var(--font-display);color:var(--brand-rose)">Class Passes</span><span style="font:400 14px/22px var(--font-body);color:var(--text-body)">Passes are valid from the date of purchase for the period shown and can’t be extended. Pregnancy yoga, workshops and events are paid separately.</span></div>
+<div style="background:#fff;border-radius:12px;padding:18px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:8px"><span style="font:600 20px/26px var(--font-display);color:var(--brand-rose)">If We Cancel</span><span style="font:400 14px/22px var(--font-body);color:var(--text-body)">If the studio has to cancel a class, everyone booked is notified and their credit or payment is returned in full.</span></div>
+<span style="font:400 12px/18px var(--font-body);color:var(--text-subtle)">Policy wording is a draft for the studio to confirm.</span>
+</div>
+</sc-if>
+<sc-if value="{{ c.sc.notifs }}">
+<div data-screen-label="C Notifications" style="padding:16px 20px 28px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ c.notifs }}" as="n" hint-placeholder-count="3"><div style="background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px"><span style="font:400 14px/20px var(--font-body);color:var(--text-strong)">{{ n.text }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">{{ n.when }}</span></div></sc-for>
+<sc-if value="{{ c.noNotifs }}"><span style="font:400 14px/20px var(--font-body);color:var(--text-muted);text-align:center;padding:24px">You’re all caught up.</span></sc-if>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{ c.hasToast }}"><div role="status" aria-live="polite" style="position:absolute;left:16px;right:16px;bottom:96px;z-index:30;background:#111827;color:#fff;border-radius:12px;padding:12px 16px;font:500 14px/20px var(--font-body);box-shadow:0 20px 25px -5px rgba(0,0,0,.25)">{{ c.toast }}</div></sc-if>
+<sc-if value="{{ c.showTabs }}">
+<nav aria-label="Main" style="flex:none;height:84px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-top:1px solid var(--border-default);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 4px 22px;position:relative;z-index:3">
+<button onClick="{{ c.go.home }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ c.tab.home }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6h-6v6H4a1 1 0 01-1-1z"></path></svg>Home</button>
+<button onClick="{{ c.go.timetable }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ c.tab.timetable }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2"></rect><path d="M3 9.5h18M8 2.5v4M16 2.5v4"></path></svg>Timetable</button>
+<button onClick="{{ c.go.bookings }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ c.tab.bookings }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2.5 2.5L16 9"></path><rect x="3" y="3" width="18" height="18" rx="3"></rect></svg>Bookings</button>
+<button onClick="{{ c.go.passes }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ c.tab.passes }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 012-2h14a2 2 0 012 2v2a2 2 0 000 4v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 000-4z"></path><path d="M14 6v12" stroke-dasharray="2 2"></path></svg>Passes</button>
+<button onClick="{{ c.go.profile }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ c.tab.profile }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Profile</button>
+</nav>
+</sc-if>
+<sc-if value="{{ c.sheetOpen }}">
+<div style="position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:flex-end">
+<div onClick="{{ c.closeSheet }}" style="position:absolute;inset:0;background:rgba(17,24,39,.5)"></div>
+<div role="dialog" aria-modal="true" class="phone-scroll" style="position:relative;background:#fff;border-radius:20px 20px 0 0;max-height:88%;overflow-y:auto;padding:10px 20px 32px;display:flex;flex-direction:column;gap:14px;box-shadow:0 -10px 25px rgba(0,0,0,.15)">
+<div style="display:flex;justify-content:center;align-items:center;position:relative;min-height:28px"><span style="width:40px;height:5px;border-radius:3px;background:#D1D5DB"></span><button onClick="{{ c.closeSheet }}" aria-label="Close" style="position:absolute;right:-8px;top:-4px;width:44px;height:44px;border:none;background:none;cursor:pointer;font:400 24px/24px var(--font-body);color:var(--text-muted)">×</button></div>
+
+<sc-if value="{{ c.sh.book }}">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">{{ c.bk.name }}</span><span style="font:500 14px/20px var(--font-body);color:var(--text-body)">{{ c.bk.when }}</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">with {{ c.bk.ins }} · {{ c.bk.loc }}</span></div>
+<span style="font:600 12px/16px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)">How would you like to pay?</span>
+<sc-for list="{{ c.bk.opts }}" as="o" hint-placeholder-count="2">
+<button onClick="{{ o.pick }}" style="display:flex;gap:12px;align-items:center;text-align:left;padding:14px;border-radius:12px;border:{{ o.bw }} solid {{ o.bd }};background:#fff;cursor:pointer"><span style="width:20px;height:20px;border-radius:50%;border:2px solid {{ o.bd }};display:flex;align-items:center;justify-content:center;flex:none"><span style="width:10px;height:10px;border-radius:50%;background:{{ o.dot }}"></span></span><span style="display:flex;flex-direction:column"><span style="font:600 15px/20px var(--font-body);color:var(--text-strong)">{{ o.label }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ o.sub }}</span></span></button>
+</sc-for>
+<sc-if value="{{ c.bk.hasNoPassNote }}"><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">{{ c.bk.noPassNote }}</span></sc-if>
+<sc-if value="{{ c.bk.isCard }}">
+<div style="background:var(--surface-alt);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px"><span style="font:600 12px/16px var(--font-body);color:var(--text-body)">Test card (demo checkout)</span><div style="display:flex;gap:8px"><button onClick="{{ c.bk.pickOk }}" style="flex:1;height:40px;border-radius:8px;border:1px solid {{ c.bk.ok.bd }};background:{{ c.bk.ok.bg }};color:{{ c.bk.ok.fg }};font:500 12px/16px var(--font-body);cursor:pointer">4242 · succeeds</button><button onClick="{{ c.bk.pickFail }}" style="flex:1;height:40px;border-radius:8px;border:1px solid {{ c.bk.fail.bd }};background:{{ c.bk.fail.bg }};color:{{ c.bk.fail.fg }};font:500 12px/16px var(--font-body);cursor:pointer">0002 · declines</button></div></div>
+</sc-if>
+<sc-if value="{{ c.bk.hasErr }}"><div role="alert" style="font:500 14px/20px var(--font-body);color:#991B1B;background:#FEE2E2;border-radius:8px;padding:10px 12px">{{ c.bk.err }}</div></sc-if>
+<span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">{{ c.bk.policy }}</span>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.bk.confirm }}" disabled="{{ c.bk.busy }}" hint-size="100%,48px">{{ c.bk.btn }}</x-import>
+</div>
+</sc-if>
+
+<sc-if value="{{ c.sh.cancel }}">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">Cancel this booking?</span>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font:600 15px/22px var(--font-body);color:var(--text-strong)">{{ c.cx.name }}</span><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">{{ c.cx.when }}</span></div>
+<sc-if value="{{ c.cx.late }}"><div style="background:#FEF9C3;border-radius:12px;padding:12px 14px;font:400 14px/20px var(--font-body);color:#713F12">{{ c.cx.msg }}</div></sc-if>
+<sc-if value="{{ c.cx.onTime }}"><div style="background:var(--surface-blush);border-radius:12px;padding:12px 14px;font:400 14px/20px var(--font-body);color:var(--text-body)">{{ c.cx.msg }}</div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.cx.confirm }}" hint-size="100%,48px">Yes, Cancel Booking</x-import>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ c.closeSheet }}" hint-size="100%,48px">Keep My Place</x-import>
+</div>
+</sc-if>
+
+<sc-if value="{{ c.sh.filters }}">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">Filter Classes</span>
+<span style="font:600 12px/16px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)">Instructor</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ c.fIns }}" as="f" hint-placeholder-count="6"><button onClick="{{ f.pick }}" style="height:36px;padding:0 14px;border-radius:999px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font:500 13px/20px var(--font-body);cursor:pointer">{{ f.label }}</button></sc-for></div>
+<span style="font:600 12px/16px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)">Format</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ c.fFormat }}" as="f" hint-placeholder-count="3"><button onClick="{{ f.pick }}" style="height:36px;padding:0 14px;border-radius:999px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font:500 13px/20px var(--font-body);cursor:pointer">{{ f.label }}</button></sc-for></div>
+<span style="font:600 12px/16px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)">Level</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ c.fLevel }}" as="f" hint-placeholder-count="3"><button onClick="{{ f.pick }}" style="height:36px;padding:0 14px;border-radius:999px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font:500 13px/20px var(--font-body);cursor:pointer">{{ f.label }}</button></sc-for></div>
+<div style="display:flex;gap:10px;margin-top:6px"><div style="flex:1"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ c.resetFilters }}" hint-size="100%,48px">Clear</x-import></div><div style="flex:1"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.closeSheet }}" hint-size="100%,48px">Show Classes</x-import></div></div>
+</div>
+</sc-if>
+<sc-if value="{{ c.sh.buy }}">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">{{ c.buy.name }}</span>
+<div style="background:var(--surface-blush);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px"><span style="font:700 26px/32px var(--font-display);color:var(--brand-rose)">{{ c.buy.price }}</span><span style="font:500 14px/20px var(--font-body);color:var(--text-body)">{{ c.buy.credits }} · {{ c.buy.validity }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">Valid for: {{ c.buy.elig }}</span></div>
+<div style="background:var(--surface-alt);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px"><span style="font:600 12px/16px var(--font-body);color:var(--text-body)">Test card (demo checkout)</span><div style="display:flex;gap:8px"><button onClick="{{ c.buy.pickOk }}" style="flex:1;height:40px;border-radius:8px;border:1px solid {{ c.buy.ok.bd }};background:{{ c.buy.ok.bg }};color:{{ c.buy.ok.fg }};font:500 12px/16px var(--font-body);cursor:pointer">4242 · succeeds</button><button onClick="{{ c.buy.pickFail }}" style="flex:1;height:40px;border-radius:8px;border:1px solid {{ c.buy.fail.bd }};background:{{ c.buy.fail.bg }};color:{{ c.buy.fail.fg }};font:500 12px/16px var(--font-body);cursor:pointer">0002 · declines</button></div></div>
+<sc-if value="{{ c.buy.hasErr }}"><div role="alert" style="font:500 14px/20px var(--font-body);color:#991B1B;background:#FEE2E2;border-radius:8px;padding:10px 12px">{{ c.buy.err }}</div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.buy.confirm }}" disabled="{{ c.buy.busy }}" hint-size="100%,48px">{{ c.buy.btn }}</x-import>
+<span style="font:400 12px/16px var(--font-body);color:var(--text-subtle);text-align:center">Credits are added once payment is confirmed. Test mode — no money is taken.</span>
+</div>
+</sc-if>
+<sc-if value="{{ c.sh.eventBook }}">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">{{ c.evb.name }}</span>
+<span style="font:500 14px/20px var(--font-body);color:var(--text-body)">{{ c.evb.when }}</span>
+<sc-if value="{{ c.evb.isPaid }}"><div style="background:var(--surface-alt);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px"><span style="font:600 12px/16px var(--font-body);color:var(--text-body)">Test card (demo checkout)</span><div style="display:flex;gap:8px"><button onClick="{{ c.evb.pickOk }}" style="flex:1;height:40px;border-radius:8px;border:1px solid {{ c.evb.ok.bd }};background:{{ c.evb.ok.bg }};color:{{ c.evb.ok.fg }};font:500 12px/16px var(--font-body);cursor:pointer">4242 · succeeds</button><button onClick="{{ c.evb.pickFail }}" style="flex:1;height:40px;border-radius:8px;border:1px solid {{ c.evb.fail.bd }};background:{{ c.evb.fail.bg }};color:{{ c.evb.fail.fg }};font:500 12px/16px var(--font-body);cursor:pointer">0002 · declines</button></div></div></sc-if>
+<sc-if value="{{ c.evb.hasErr }}"><div role="alert" style="font:500 14px/20px var(--font-body);color:#991B1B;background:#FEE2E2;border-radius:8px;padding:10px 12px">{{ c.evb.err }}</div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.evb.confirm }}" disabled="{{ c.evb.busy }}" hint-size="100%,48px">{{ c.evb.btn }}</x-import>
+</div>
+</sc-if>
+<sc-if value="{{ c.sh.request }}">
+<div style="display:flex;flex-direction:column;gap:14px">
+<sc-if value="{{ c.rq.notDone }}">
+<span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">{{ c.rq.name }}</span>
+<sc-if value="{{ c.rq.notEnq }}">
+<span style="font:600 12px/16px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)">Preferred date</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ c.rq.dates }}" as="d" hint-placeholder-count="6"><button onClick="{{ d.pick }}" style="height:36px;padding:0 12px;border-radius:999px;border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};font:500 13px/20px var(--font-body);cursor:pointer">{{ d.label }}</button></sc-for></div>
+<span style="font:600 12px/16px var(--font-body);letter-spacing:.06em;text-transform:uppercase;color:var(--text-subtle)">Time of day</span>
+<div style="display:flex;gap:8px"><sc-for list="{{ c.rq.slots }}" as="d" hint-placeholder-count="3"><button onClick="{{ d.pick }}" style="flex:1;height:40px;border-radius:8px;border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};font:500 13px/20px var(--font-body);cursor:pointer">{{ d.label }}</button></sc-for></div>
+</sc-if>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Message<textarea value="{{ c.rq.msg }}" onChange="{{ c.rq.onMsg }}" rows="3" placeholder="Anything we should know?" style="border:1px solid #D1D5DB;border-radius:8px;padding:10px 12px;font:400 15px/22px var(--font-body);resize:none;outline-color:#EC0F8C"></textarea></label>
+<sc-if value="{{ c.rq.hasErr }}"><div role="alert" style="font:500 14px/20px var(--font-body);color:#991B1B;background:#FEE2E2;border-radius:8px;padding:10px 12px">{{ c.rq.err }}</div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.rq.submit }}" hint-size="100%,48px">Send Request</x-import>
+<span style="font:400 12px/16px var(--font-body);color:var(--text-subtle);text-align:center">This is a request, not a confirmed booking. No payment is taken now.</span>
+</sc-if>
+<sc-if value="{{ c.rq.done }}">
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:10px 0"><span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">Request Sent</span><span style="font:400 14px/20px var(--font-body);color:var(--text-body)">Thank you — we’ll be in touch to confirm a time. You can see your request in My Bookings.</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.closeSheet }}" hint-size="100%,48px">Done</x-import></div>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ c.sh.del }}">
+<div style="display:flex;flex-direction:column;gap:14px">
+<span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">Delete your account?</span>
+<span style="font:400 14px/22px var(--font-body);color:var(--text-body)">We’ll remove your personal details. Payment records we’re legally required to keep are retained in anonymised form. Unused pass credits will be lost.</span>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ c.confirmDelete }}" hint-size="100%,48px">Request Deletion</x-import>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ c.closeSheet }}" hint-size="100%,48px">Keep My Account</x-import>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{ showOwner }}" hint-placeholder-val="{{ true }}">
+<section data-screen-label="Owner Dashboard" style="display:flex;flex-direction:column;align-items:center;gap:{{ fr.sg }}">
+<sc-if value="{{ fr.desk }}" hint-placeholder-val="{{ true }}"><span style="font:600 12px/20px var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#0F172A;border-radius:6px;padding:4px 12px">Studio Management</span></sc-if>
+<div style="width:{{ fr.ow }};height:{{ fr.oh }};border-radius:{{ fr.or }};background:#0F172A;padding:{{ fr.op }};box-shadow:{{ fr.sh }};flex:none">
+<div style="position:relative;width:{{ fr.iw }};height:{{ fr.ih }};border-radius:{{ fr.ir }};overflow:hidden;background:var(--surface-alt);display:flex;flex-direction:column">
+<div style="height:{{ fr.sb }};visibility:{{ fr.vis }};overflow:hidden;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font:600 15px/20px var(--font-ui-alt);color:#fff;background:#0F172A"><span>9:41</span><span style="display:flex;gap:6px;align-items:center"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"></rect><rect x="5" y="5" width="3" height="7" rx="1"></rect><rect x="10" y="2" width="3" height="10" rx="1"></rect><rect x="15" y="0" width="3" height="12" rx="1"></rect></svg><svg width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="currentColor"><rect x="0.5" y="0.5" width="22" height="11" rx="3"></rect><rect x="2.5" y="2.5" width="16" height="7" rx="1.5" fill="currentColor" stroke="none"></rect></svg></span></div>
+<sc-if value="{{ o.headerTab }}">
+<div style="height:60px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#0F172A;color:#fff">
+<div style="display:flex;align-items:center;gap:10px"><img src="assets/logo.webp" alt="Sonshine Hollistic" style="height:36px;background:#fff;border-radius:8px;padding:3px 6px"><span style="font:600 13px/18px var(--font-body)">Studio</span></div>
+<div style="display:flex;align-items:center;gap:8px"><span style="font:500 12px/16px var(--font-body);color:#D1D5DB">{{ o.me.role }}</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ o.me.ini }}" size="{{ 34 }}" hint-size="34px,34px"></x-import></div>
+</div>
+</sc-if>
+<sc-if value="{{ o.headerBack }}">
+<div style="height:56px;flex:none;display:flex;align-items:center;gap:2px;padding:0 8px;background:#0F172A;color:#fff">
+<button onClick="{{ o.back }}" aria-label="Back" style="width:44px;height:44px;border:none;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<span style="font:700 18px/24px var(--font-display);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ o.title }}</span>
+</div>
+</sc-if>
+<div ref="{{ oRef }}" class="phone-scroll" style="flex:1;overflow-y:auto;overflow-x:hidden;position:relative;display:flex;flex-direction:column">
+<sc-if value="{{ o.sc.login }}">
+<div data-screen-label="O Login" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:28px 24px;background:#fff">
+<img src="assets/logo.webp" alt="Sonshine Hollistic" style="width:140px;align-self:center">
+<div style="text-align:center;display:flex;flex-direction:column;gap:4px"><h1 style="margin:0;font:700 26px/32px var(--font-display);color:var(--text-strong)">Studio Management</h1><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">For owners and administrators only</span></div>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Email address<input type="email" value="{{ o.of.email }}" onChange="{{ o.ofOn.email }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 14px;font:400 16px/24px var(--font-body);outline-color:#EC0F8C"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Password<input type="password" value="{{ o.of.pw }}" onChange="{{ o.ofOn.pw }}" placeholder="demo1234" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 14px;font:400 16px/24px var(--font-body);outline-color:#EC0F8C"></label>
+<sc-if value="{{ o.hasLoginErr }}"><div role="alert" style="font:500 14px/20px var(--font-body);color:#991B1B;background:#FEE2E2;border-radius:8px;padding:10px 12px">{{ o.loginErr }}</div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ o.login }}" hint-size="100%,48px">Sign In</x-import>
+<sc-if value="{{ fr.mob }}"><button onClick="{{ toCustomer }}" style="border:none;background:none;color:var(--brand-rose);font:600 14px/20px var(--font-body);cursor:pointer;padding:8px">Back to the Customer App</button></sc-if><span style="font:400 12px/18px var(--font-body);color:var(--text-subtle);text-align:center">Demo: son@demo.test (owner) or ruth@demo.test (admin) · demo1234. Customer logins are refused.</span>
+</div>
+</sc-if>
+
+<sc-if value="{{ o.sc.dash }}">
+<div data-screen-label="O Dashboard" style="padding:20px 16px 28px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font:500 13px/20px var(--font-body);color:var(--text-subtle)">{{ o.todayLabel }}</span><h1 style="margin:0;font:700 26px/32px var(--font-display);color:var(--text-strong)">{{ o.greet }}</h1></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<sc-for list="{{ o.stats }}" as="s" hint-placeholder-count="4"><div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:2px"><span style="font:500 12px/16px var(--font-body);color:var(--text-muted)">{{ s.label }}</span><span style="font:700 30px/36px var(--font-display);color:var(--brand-rose)">{{ s.value }}</span><span style="font:400 11px/14px var(--font-body);color:var(--text-subtle)">{{ s.sub }}</span></div></sc-for>
+</div>
+<sc-if value="{{ o.hasAttention }}">
+<div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:700 20px/26px var(--font-display);color:var(--text-strong)">Needs Attention</h2>
+<sc-for list="{{ o.attention }}" as="a" hint-placeholder-count="2"><div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;align-items:center;gap:10px"><span style="width:8px;height:8px;border-radius:50%;background:var(--brand-rose);flex:none"></span><span style="flex:1;font:400 13px/18px var(--font-body);color:var(--text-strong)">{{ a.text }}</span><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="outline" onClick="{{ a.act }}" hint-size="70px,36px">{{ a.label }}</x-import></div></sc-for>
+</div>
+</sc-if>
+<div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:700 20px/26px var(--font-display);color:var(--text-strong)">Today’s Classes</h2>
+<sc-for list="{{ o.todayList }}" as="s" hint-placeholder-count="3">
+<div onClick="{{ s.open }}" role="button" tabindex="0" style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:8px;cursor:pointer;opacity:{{ s.opacity }}">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font:600 15px/20px var(--font-display);color:var(--text-heading)">{{ s.time }} · {{ s.name }}</span><span style="font:700 14px/20px var(--font-body);color:var(--text-strong);flex:none">{{ s.occ }}</span></div>
+<div style="height:6px;border-radius:3px;background:var(--surface-sunken);overflow:hidden"><div style="height:100%;width:{{ s.pct }};background:{{ s.barBg }}"></div></div>
+<div style="display:flex;justify-content:space-between;font:400 12px/16px var(--font-body);color:var(--text-muted)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">{{ s.insName }} · {{ s.format }}</span><span style="flex:none;padding-left:8px">{{ s.statusLabel }} {{ s.wait }}</span></div>
+</div>
+</sc-for>
+<sc-if value="{{ o.todayEmpty }}"><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">No classes scheduled today.</span></sc-if>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:700 20px/26px var(--font-display);color:var(--text-strong)">Recent Bookings</h2>
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<sc-for list="{{ o.recent }}" as="r" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border-default)"><div style="display:flex;flex-direction:column;min-width:0"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ r.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ r.cls }}</span></div><span style="font:600 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ r.statusBg }};color:{{ r.statusFg }};flex:none">{{ r.statusLabel }}</span></div></sc-for>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:700 20px/26px var(--font-display);color:var(--text-strong)">New Customers</h2>
+<sc-for list="{{ o.newCust }}" as="n" hint-placeholder-count="3"><div onClick="{{ n.open }}" role="button" tabindex="0" style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;justify-content:space-between;cursor:pointer"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ n.name }}</span><span style="font:400 12px/20px var(--font-body);color:var(--text-muted)">{{ n.joined }}</span></div></sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ o.sc.sessions }}">
+<div data-screen-label="O Sessions" style="display:flex;flex-direction:column;padding-bottom:28px">
+<div style="background:#fff;padding:14px 0 12px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(0,0,0,.05)">
+<div style="padding:0 16px;display:flex;justify-content:space-between;align-items:center"><h1 style="margin:0;font:700 24px/30px var(--font-display);color:var(--text-strong)">Timetable</h1><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ o.addSession }}" hint-size="110px,36px" style="background:var(--color-rose-49)">+ Add Session</x-import></div>
+<div class="hscroll" style="display:flex;gap:8px;overflow-x:auto;padding:2px 16px">
+<sc-for list="{{ o.days }}" as="d" hint-placeholder-count="7"><button onClick="{{ d.pick }}" aria-label="{{ d.label }}" style="width:52px;height:64px;flex:none;border-radius:12px;border:1px solid #E5E7EB;background:{{ d.bg }};cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0"><span style="font:500 11px/14px var(--font-body);color:{{ d.sub }}">{{ d.dow }}</span><span style="font:700 20px/24px var(--font-display);color:{{ d.fg }}">{{ d.num }}</span></button></sc-for>
+</div>
+</div>
+<div style="margin:16px 16px 0;background:var(--brand-rose);border-radius:8px 8px 0 0;padding:10px 16px;font:700 16px/24px var(--font-display);color:#fff">{{ o.dayTitle }}</div>
+<div style="margin:0 16px;background:var(--surface-cream);border-radius:0 0 12px 12px;padding:12px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ o.list }}" as="s" hint-placeholder-count="3">
+<div onClick="{{ s.open }}" role="button" tabindex="0" style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:8px;cursor:pointer;opacity:{{ s.opacity }}">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font:600 15px/20px var(--font-display);color:var(--text-heading)">{{ s.time }} · {{ s.name }}</span><span style="font:700 14px/20px var(--font-body);color:var(--text-strong);flex:none">{{ s.occ }}</span></div>
+<div style="height:6px;border-radius:3px;background:var(--surface-sunken);overflow:hidden"><div style="height:100%;width:{{ s.pct }};background:{{ s.barBg }}"></div></div>
+<div style="display:flex;justify-content:space-between;font:400 12px/16px var(--font-body);color:var(--text-muted)"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">{{ s.insName }} · {{ s.format }}</span><span style="flex:none;padding-left:8px">{{ s.statusLabel }} {{ s.wait }}</span></div>
+</div>
+</sc-for>
+<sc-if value="{{ o.listEmpty }}"><span style="font:400 14px/20px var(--font-body);color:var(--text-muted);text-align:center;padding:20px">No sessions on this day.</span></sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.session }}">
+<div data-screen-label="O Session Detail" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:4px"><h1 style="margin:0;font:700 24px/30px var(--font-display);color:var(--text-strong)">{{ o.ss.name }}</h1><span style="font:500 14px/20px var(--font-body);color:var(--text-body)">{{ o.ss.dateLong }} · {{ o.ss.timeRange }}</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">{{ o.ss.format }} · {{ o.ss.statusLabel }}</span></div>
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);padding:14px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 14px/20px var(--font-body);color:var(--text-strong)">Capacity · {{ o.ss.occ }} booked</span><div style="display:flex;align-items:center;gap:6px"><button onClick="{{ o.capDec }}" aria-label="Decrease capacity" style="width:40px;height:40px;border-radius:8px;border:1px solid #E5E7EB;background:#fff;font:600 18px/18px var(--font-body);cursor:pointer">−</button><span style="width:32px;text-align:center;font:700 18px/24px var(--font-body)">{{ o.ss.cap }}</span><button onClick="{{ o.capInc }}" aria-label="Increase capacity" style="width:40px;height:40px;border-radius:8px;border:1px solid #E5E7EB;background:#fff;font:600 18px/18px var(--font-body);cursor:pointer">+</button></div></div>
+<label style="display:flex;justify-content:space-between;align-items:center;gap:10px;font:500 14px/20px var(--font-body);color:var(--text-strong)">Instructor<select value="{{ o.ss.insId }}" onChange="{{ o.changeIns }}" style="height:40px;border:1px solid #D1D5DB;border-radius:8px;padding:0 10px;font:400 14px/20px var(--font-body);background:#fff"><sc-for list="{{ o.insOpts }}" as="i"><option value="{{ i.id }}">{{ i.name }}</option></sc-for></select></label>
+<button onClick="{{ o.toggleWait }}" role="switch" style="border:none;background:none;padding:0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font:500 14px/20px var(--font-body);color:var(--text-strong)">Waitlist open<span style="width:46px;height:26px;border-radius:13px;background:{{ o.ss.waitTg.bg }};padding:3px;display:flex"><span style="width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX({{ o.ss.waitTg.x }});transition:transform 150ms"></span></span></button>
+<sc-if value="{{ o.ss.hasLink }}"><span style="font:400 12px/16px var(--font-body);color:var(--text-muted);word-break:break-all">Online link: {{ o.ss.link }}</span></sc-if>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:700 18px/24px var(--font-display);color:var(--text-strong)">Register</h2>
+<sc-for list="{{ o.roster }}" as="r" hint-placeholder-count="4">
+<div style="background:#fff;border-radius:12px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;gap:8px"><div style="display:flex;flex-direction:column;min-width:0"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ r.name }}</span><span style="font:400 11px/16px var(--font-body);color:var(--text-muted)">{{ r.method }}</span></div><span style="font:600 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ r.statusBg }};color:{{ r.statusFg }};align-self:flex-start;flex:none">{{ r.statusLabel }}</span></div>
+<sc-if value="{{ r.canMark }}"><div style="display:flex;gap:6px"><button onClick="{{ r.att }}" style="flex:1;height:36px;border-radius:8px;border:1px solid {{ r.attSel.bd }};background:{{ r.attSel.bg }};color:{{ r.attSel.fg }};font:600 12px/16px var(--font-body);cursor:pointer">Attended</button><button onClick="{{ r.ns }}" style="flex:1;height:36px;border-radius:8px;border:1px solid {{ r.nsSel.bd }};background:{{ r.nsSel.bg }};color:{{ r.nsSel.fg }};font:600 12px/16px var(--font-body);cursor:pointer">No-show</button><button onClick="{{ r.cancel }}" style="height:36px;padding:0 10px;border-radius:8px;border:1px solid #E5E7EB;background:#fff;color:var(--text-body);font:600 12px/16px var(--font-body);cursor:pointer">Cancel</button></div></sc-if>
+</div>
+</sc-for>
+<sc-if value="{{ o.rosterEmpty }}"><span style="font:400 14px/20px var(--font-body);color:var(--text-muted)">No one booked yet.</span></sc-if>
+</div>
+<sc-if value="{{ o.hasWaitlist }}"><div style="display:flex;flex-direction:column;gap:6px"><h2 style="margin:0;font:700 18px/24px var(--font-display);color:var(--text-strong)">Waitlist</h2><sc-for list="{{ o.waitlist }}" as="w" hint-placeholder-count="1"><div style="background:#fff;border-radius:10px;padding:10px 12px;display:flex;justify-content:space-between;font:400 13px/18px var(--font-body);color:var(--text-strong)"><span>{{ w.name }}</span><span style="color:var(--text-subtle);font-size:11px">{{ w.when }}</span></div></sc-for></div></sc-if>
+<sc-if value="{{ o.ss.notCancelled }}">
+<div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:10px"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">Add customer manually</span><div style="display:flex;gap:8px"><select value="{{ o.manualSel }}" onChange="{{ o.onManual }}" style="flex:1;min-width:0;height:40px;border:1px solid #D1D5DB;border-radius:8px;padding:0 10px;font:400 14px/20px var(--font-body);background:#fff"><sc-for list="{{ o.custOpts }}" as="u"><option value="{{ u.id }}">{{ u.name }}</option></sc-for></select><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ o.addManual }}" hint-size="60px,36px" style="background:var(--color-rose-49)">Add</x-import></div></div>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.cancelSession }}" hint-size="100%,48px">Cancel This Session</x-import>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.newSession }}">
+<div data-screen-label="O New Session" style="padding:20px 16px 28px;display:flex;flex-direction:column;gap:14px">
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Class<select value="{{ o.nf.cls }}" onChange="{{ o.nfOn.cls }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body);background:#fff"><sc-for list="{{ o.clsOpts }}" as="x"><option value="{{ x.id }}">{{ x.name }}</option></sc-for></select></label>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Date<select value="{{ o.nf.date }}" onChange="{{ o.nfOn.date }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body);background:#fff"><sc-for list="{{ o.dateOpts }}" as="x"><option value="{{ x.id }}">{{ x.name }}</option></sc-for></select></label>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Start time<input type="time" value="{{ o.nf.start }}" onChange="{{ o.nfOn.start }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body)"></label>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Capacity<input type="number" min="1" value="{{ o.nf.cap }}" onChange="{{ o.nfOn.cap }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body)"></label>
+</div>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Repeat<select value="{{ o.nf.repeat }}" onChange="{{ o.nfOn.repeat }}" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body);background:#fff"><sc-for list="{{ o.repeatOpts }}" as="x"><option value="{{ x.id }}">{{ x.name }}</option></sc-for></select></label>
+<div style="background:var(--surface-blush);border-radius:12px;padding:12px 14px;font:500 13px/20px var(--font-body);color:var(--brand-rose-ink)">{{ o.nfSummary }}</div>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ o.createSession }}" hint-size="100%,48px">Add to Timetable</x-import>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.bookings }}">
+<div data-screen-label="O Bookings" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:12px">
+<h1 style="margin:0;font:700 24px/30px var(--font-display);color:var(--text-strong)">Bookings</h1>
+<input type="search" aria-label="Search bookings" placeholder="Search name, email, class or instructor" value="{{ o.oq }}" onChange="{{ o.onQ }}" style="height:44px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body);outline-color:#EC0F8C">
+<div class="hscroll" style="display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:0 16px"><sc-for list="{{ o.bst }}" as="t" hint-placeholder-count="5"><button onClick="{{ t.pick }}" style="height:34px;flex:none;padding:0 12px;border-radius:999px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};font:500 13px/20px var(--font-body);cursor:pointer">{{ t.label }}</button></sc-for></div>
+<span style="font:400 12px/16px var(--font-body);color:var(--text-subtle)">Showing bookings within two weeks of today</span>
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<sc-for list="{{ o.blist }}" as="b" hint-placeholder-count="6"><button onClick="{{ b.open }}" style="border:none;background:none;border-bottom:1px solid var(--border-default);padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;cursor:pointer"><span style="display:flex;flex-direction:column;min-width:0"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ b.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ b.cls }} · {{ b.when }}</span></span><span style="font:600 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ b.statusBg }};color:{{ b.statusFg }};flex:none">{{ b.statusLabel }}</span></button></sc-for>
+<sc-if value="{{ o.bEmpty }}"><span style="font:400 14px/20px var(--font-body);color:var(--text-muted);text-align:center;padding:20px">No bookings match.</span></sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.customers }}">
+<div data-screen-label="O Customers" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:12px">
+<h1 style="margin:0;font:700 24px/30px var(--font-display);color:var(--text-strong)">Customers</h1>
+<input type="search" aria-label="Search customers" placeholder="Search by name or email" value="{{ o.cq }}" onChange="{{ o.onCQ }}" style="height:44px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body);outline-color:#EC0F8C">
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<sc-for list="{{ o.clist }}" as="u" hint-placeholder-count="6"><button onClick="{{ u.open }}" style="border:none;background:none;border-bottom:1px solid var(--border-default);padding:10px 14px;display:flex;align-items:center;gap:12px;text-align:left;cursor:pointer"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ u.ini }}" size="{{ 36 }}" hint-size="36px,36px"></x-import><span style="flex:1;display:flex;flex-direction:column;min-width:0"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ u.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ u.email }}</span></span><span style="font:500 12px/16px var(--font-body);color:var(--brand-rose);flex:none">{{ u.credits }}</span></button></sc-for>
+<sc-if value="{{ o.cEmpty }}"><span style="font:400 14px/20px var(--font-body);color:var(--text-muted);text-align:center;padding:20px">No customers match.</span></sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.customer }}">
+<div data-screen-label="O Customer Detail" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:12px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ o.cu.ini }}" size="{{ 56 }}" hint-size="56px,56px"></x-import><div style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">{{ o.cu.name }}</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">{{ o.cu.email }}</span><span style="font:400 11px/16px var(--font-body);color:var(--text-subtle)">{{ o.cu.joined }} · {{ o.cu.verified }}</span></div></div>
+<div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:2px;font:400 13px/20px var(--font-body);color:var(--text-body)"><span>{{ o.cu.stats }}</span><span style="color:var(--text-subtle)">{{ o.cu.marketing }}</span></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0;font:700 18px/24px var(--font-display);color:var(--text-strong)">Passes</h2><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="outline" onClick="{{ o.grantPass }}" hint-size="120px,36px">+ Comp Credit</x-import></div>
+<sc-for list="{{ o.cu.passes }}" as="p" hint-placeholder-count="1"><div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;justify-content:space-between;align-items:center;gap:10px"><div style="display:flex;flex-direction:column"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ p.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ p.bal }} · {{ p.exp }}</span></div><sc-if value="{{ p.active }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="soft" onClick="{{ p.adjust }}" hint-size="70px,36px" style="background:var(--color-rose-60)">Adjust</x-import></sc-if></div></sc-for>
+<sc-if value="{{ o.cu.noPasses }}"><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">No passes.</span></sc-if>
+</div>
+<sc-if value="{{ o.cu.hasBookings }}"><div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:700 18px/24px var(--font-display);color:var(--text-strong)">Bookings</h2><div style="background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column"><sc-for list="{{ o.cu.bookings }}" as="b" hint-placeholder-count="3"><button onClick="{{ b.open }}" style="border:none;background:none;border-bottom:1px solid var(--border-default);padding:10px 14px;display:flex;justify-content:space-between;gap:8px;text-align:left;cursor:pointer"><span style="display:flex;flex-direction:column"><span style="font:600 13px/18px var(--font-body);color:var(--text-strong)">{{ b.cls }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ b.when }}</span></span><span style="font:600 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ b.statusBg }};color:{{ b.statusFg }};align-self:center">{{ b.statusLabel }}</span></button></sc-for></div></div></sc-if>
+<sc-if value="{{ o.cu.hasPayments }}"><div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:700 18px/24px var(--font-display);color:var(--text-strong)">Payments</h2><div style="background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;flex-direction:column"><sc-for list="{{ o.cu.payments }}" as="p" hint-placeholder-count="2"><div style="border-bottom:1px solid var(--border-default);padding:10px 14px;display:flex;justify-content:space-between;gap:8px"><span style="display:flex;flex-direction:column;min-width:0"><span style="font:500 13px/18px var(--font-body);color:var(--text-strong)">{{ p.label }}</span><span style="font:400 11px/16px var(--font-body);color:var(--text-muted)">{{ p.when }} · {{ p.statusLabel }}</span></span><span style="font:700 13px/18px var(--font-body);color:var(--text-strong);flex:none">{{ p.amount }}</span></div></sc-for></div></div></sc-if>
+<div style="display:flex;flex-direction:column;gap:8px"><h2 style="margin:0;font:700 18px/24px var(--font-display);color:var(--text-strong)">Internal Notes</h2><textarea value="{{ o.cu.notes }}" onChange="{{ o.onNotes }}" rows="3" placeholder="Injuries, preferences… (never shown to the customer)" style="border:1px solid #D1D5DB;border-radius:8px;padding:10px 12px;font:400 14px/20px var(--font-body);resize:none;outline-color:#EC0F8C"></textarea><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ o.saveNotes }}" style="align-self:flex-end;background:var(--color-rose-49)" hint-size="90px,36px">Save Note</x-import></div>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.toggleActive }}" hint-size="100%,48px">{{ o.cu.activeLabel }} — Change</x-import>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.more }}">
+<div data-screen-label="O More" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:12px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ o.me.ini }}" size="{{ 48 }}" hint-size="48px,48px"></x-import><div style="display:flex;flex-direction:column"><span style="font:700 20px/26px var(--font-display);color:var(--text-strong)">{{ o.me.name }}</span><span style="font:500 13px/18px var(--font-body);color:var(--brand-rose)">{{ o.me.role }}</span></div></div>
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<button onClick="{{ o.go.requests }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Appointment Requests<span style="display:flex;gap:8px;align-items:center"><sc-if value="{{ o.hasPending }}"><span style="min-width:22px;height:22px;border-radius:11px;background:var(--brand-rose);color:#fff;font:600 12px/22px var(--font-body);text-align:center;padding:0 6px">{{ o.pendingCount }}</span></sc-if><span style="color:var(--brand-rose)">›</span></span></button>
+<button onClick="{{ o.go.events }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Events &amp; Workshops<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ o.go.products }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Passes &amp; Pricing<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ o.go.payments }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Payments<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ o.go.reports }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Reports &amp; Export<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ o.go.instructors }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Instructors<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ o.go.settings }}" style="min-height:52px;border:none;background:none;border-bottom:1px solid var(--border-default);display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Studio Settings<span style="color:var(--brand-rose)">›</span></button>
+<button onClick="{{ o.go.audit }}" style="min-height:52px;border:none;background:none;display:flex;align-items:center;justify-content:space-between;padding:0 16px;cursor:pointer;font:500 15px/20px var(--font-body);color:var(--text-strong)">Audit Log<span style="color:var(--brand-rose)">›</span></button>
+</div>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.signOut }}" hint-size="100%,48px">Sign Out</x-import><sc-if value="{{ fr.mob }}"><button onClick="{{ toCustomer }}" style="border:none;background:none;color:var(--text-muted);font:500 13px/20px var(--font-body);cursor:pointer;padding:8px">Switch to the Customer App</button></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.requests }}">
+<div data-screen-label="O Requests" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ o.reqs }}" as="r" hint-placeholder-count="2">
+<div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;gap:8px"><span style="font:600 15px/20px var(--font-body);color:var(--text-strong)">{{ r.name }}</span><span style="font:600 11px/20px var(--font-body);padding:0 8px;border-radius:6px;background:{{ r.statusBg }};color:{{ r.statusFg }};flex:none">{{ r.statusLabel }}</span></div>
+<span style="font:600 13px/18px var(--font-body);color:var(--brand-rose)">{{ r.svc }}</span>
+<span style="font:400 13px/18px var(--font-body);color:var(--text-body)">{{ r.pref }}</span>
+<sc-if value="{{ r.hasMsg }}"><span style="font:italic 400 13px/20px var(--font-body);color:var(--text-body)">{{ r.msg }}</span></sc-if>
+<span style="font:400 11px/16px var(--font-body);color:var(--text-subtle)">{{ r.received }}</span>
+<sc-if value="{{ r.isPending }}"><div style="display:flex;gap:8px;margin-top:4px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="rose" onClick="{{ r.accept }}" hint-size="80px,36px" style="background:var(--color-rose-49)">Accept</x-import><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="outline" onClick="{{ r.decline }}" hint-size="80px,36px">Decline</x-import></div></sc-if>
+<sc-if value="{{ r.isAccepted }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="outline" onClick="{{ r.complete }}" style="align-self:flex-start" hint-size="130px,36px">Mark Completed</x-import></sc-if>
+</div>
+</sc-for>
+<sc-if value="{{ o.reqEmpty }}"><span style="font:400 14px/20px var(--font-body);color:var(--text-muted);text-align:center;padding:20px">No requests yet.</span></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.events }}">
+<div data-screen-label="O Events" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ o.evs }}" as="x" hint-placeholder-count="3"><div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:6px"><span style="font:600 16px/21px var(--font-display);color:var(--text-heading)">{{ x.name }}</span><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ x.dateLabel }} · {{ x.price }}</span><div style="display:flex;justify-content:space-between;align-items:center"><span style="font:600 13px/18px var(--font-body);color:var(--brand-rose)">{{ x.booked }}</span><button onClick="{{ x.toggle }}" role="switch" style="border:none;background:none;padding:0;display:flex;gap:8px;align-items:center;cursor:pointer;font:500 12px/16px var(--font-body);color:var(--text-body)">{{ x.pubLabel }}<span style="width:46px;height:26px;border-radius:13px;background:{{ x.pub.bg }};padding:3px;display:flex"><span style="width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX({{ x.pub.x }});transition:transform 150ms"></span></span></button></div></div></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.products }}">
+<div data-screen-label="O Products" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:10px">
+<span style="font:400 13px/20px var(--font-body);color:var(--text-muted)">Price changes apply to future purchases only. Existing passes keep their credits and expiry.</span>
+<sc-for list="{{ o.prods }}" as="p" hint-placeholder-count="3"><div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;gap:8px"><span style="font:600 16px/21px var(--font-display);color:var(--text-heading)">{{ p.name }}</span><span style="font:700 16px/21px var(--font-body);color:var(--brand-rose)">{{ p.price }}</span></div><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ p.meta }} · {{ p.sold }}</span><div style="display:flex;gap:8px;align-items:center"><span style="font:600 14px/20px var(--font-body);color:var(--text-body)">£</span><input inputmode="decimal" aria-label="Price" value="{{ p.input }}" onChange="{{ p.onInput }}" style="width:90px;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 10px;font:400 14px/20px var(--font-body)"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.SmallButton" tone="soft" onClick="{{ p.save }}" hint-size="60px,36px" style="background:var(--color-rose-60)">Save</x-import><span style="flex:1"></span><button onClick="{{ p.toggle }}" role="switch" style="border:none;background:none;padding:0;display:flex;gap:8px;align-items:center;cursor:pointer;font:500 12px/16px var(--font-body);color:var(--text-body)">{{ p.saleLabel }}<span style="width:46px;height:26px;border-radius:13px;background:{{ p.sale.bg }};padding:3px;display:flex"><span style="width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX({{ p.sale.x }});transition:transform 150ms"></span></span></button></div></div></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.payments }}">
+<div data-screen-label="O Payments" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:10px">
+<input type="search" aria-label="Search payments" placeholder="Search name, item or reference" value="{{ o.pq }}" onChange="{{ o.onPQ }}" style="height:44px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body);outline-color:#EC0F8C">
+<span style="font:500 12px/16px var(--font-body);color:var(--brand-rose-ink);background:var(--surface-blush);border-radius:6px;padding:6px 10px">Test mode — no real money moves</span>
+<div style="background:#fff;border-radius:12px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column">
+<sc-for list="{{ o.pays }}" as="p" hint-placeholder-count="6"><div style="border-bottom:1px solid var(--border-default);padding:10px 14px;display:flex;flex-direction:column;gap:4px"><div style="display:flex;justify-content:space-between;gap:8px"><span style="font:600 13px/18px var(--font-body);color:var(--text-strong)">{{ p.name }}</span><span style="font:700 13px/18px var(--font-body);color:var(--text-strong)">{{ p.amount }}</span></div><span style="font:400 12px/16px var(--font-body);color:var(--text-muted)">{{ p.label }}</span><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font:400 11px/16px var(--font-body);color:var(--text-subtle)">{{ p.when }} · <span style="padding:0 6px;border-radius:4px;background:{{ p.statusBg }};color:{{ p.statusFg }};font-weight:600">{{ p.statusLabel }}</span></span><sc-if value="{{ p.canRefund }}"><button onClick="{{ p.refund }}" style="border:none;background:none;padding:6px 0;color:var(--brand-rose);font:600 12px/16px var(--font-body);cursor:pointer">Refund</button></sc-if></div></div></sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.reports }}">
+<div data-screen-label="O Reports" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;gap:8px"><sc-for list="{{ o.periods }}" as="t" hint-placeholder-count="3"><button onClick="{{ t.pick }}" style="flex:1;height:36px;border-radius:999px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};font:500 12px/16px var(--font-body);cursor:pointer">{{ t.label }}</button></sc-for></div>
+<div style="border-radius:16px;padding:18px;background:var(--brand-gradient);color:#fff;display:flex;flex-direction:column;gap:6px"><span style="font:500 12px/16px var(--font-body)">Net revenue (test mode)</span><span style="font:700 34px/40px var(--font-display)">{{ o.rep.net }}</span><span style="font:400 12px/16px var(--font-body)">{{ o.rep.gross }} taken · {{ o.rep.refunds }} refunded</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)"><div style="font:500 12px/16px var(--font-body);color:var(--text-muted)">Bookings</div><div style="font:700 24px/30px var(--font-display);color:var(--text-strong)">{{ o.rep.bookings }}</div></div>
+<div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)"><div style="font:500 12px/16px var(--font-body);color:var(--text-muted)">Classes run</div><div style="font:700 24px/30px var(--font-display);color:var(--text-strong)">{{ o.rep.classes }}</div></div>
+<div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)"><div style="font:500 12px/16px var(--font-body);color:var(--text-muted)">Avg occupancy</div><div style="font:700 24px/30px var(--font-display);color:var(--text-strong)">{{ o.rep.occupancy }}</div></div>
+<div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)"><div style="font:500 12px/16px var(--font-body);color:var(--text-muted)">Attendance rate</div><div style="font:700 24px/30px var(--font-display);color:var(--text-strong)">{{ o.rep.attendance }}</div></div>
+<div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)"><div style="font:500 12px/16px var(--font-body);color:var(--text-muted)">Cancellation rate</div><div style="font:700 24px/30px var(--font-display);color:var(--text-strong)">{{ o.rep.cancelRate }}</div></div>
+<div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)"><div style="font:500 12px/16px var(--font-body);color:var(--text-muted)">New customers</div><div style="font:700 24px/30px var(--font-display);color:var(--text-strong)">{{ o.rep.newCust }}</div></div>
+</div>
+<div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;justify-content:space-between;font:500 13px/20px var(--font-body);color:var(--text-body)"><span>Pass sales</span><span style="font-weight:600;color:var(--text-strong)">{{ o.rep.passSales }}</span></div>
+<sc-if value="{{ o.hasPopular }}"><div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:10px"><span style="font:600 16px/22px var(--font-display);color:var(--text-strong)">Most Popular Classes</span><sc-for list="{{ o.popular }}" as="p" hint-placeholder-count="4"><div style="display:flex;flex-direction:column;gap:4px"><div style="display:flex;justify-content:space-between;font:500 13px/18px var(--font-body);color:var(--text-body)"><span>{{ p.name }}</span><span>{{ p.count }}</span></div><div style="height:6px;border-radius:3px;background:var(--surface-sunken);overflow:hidden"><div style="height:100%;width:{{ p.pct }};background:var(--brand-gradient)"></div></div></div></sc-for></div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.exportCsv }}" hint-size="100%,48px">Export Bookings CSV</x-import>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.instructors }}">
+<div data-screen-label="O Instructors" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ o.insList }}" as="i" hint-placeholder-count="5"><div style="background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;align-items:center;gap:12px"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Avatar" initials="{{ i.ini }}" size="{{ 40 }}" hint-size="40px,40px"></x-import><div style="flex:1;min-width:0;display:flex;flex-direction:column"><span style="font:600 14px/20px var(--font-body);color:var(--text-strong)">{{ i.name }}</span><span style="font:400 11px/16px var(--font-body);color:var(--text-muted)">{{ i.count }}</span></div><button onClick="{{ i.toggle }}" role="switch" aria-label="{{ i.actLabel }}" style="border:none;background:none;padding:0;cursor:pointer"><span style="width:46px;height:26px;border-radius:13px;background:{{ i.act.bg }};padding:3px;display:flex"><span style="width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX({{ i.act.x }});transition:transform 150ms"></span></span></button></div></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.settings }}">
+<div data-screen-label="O Settings" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:14px">
+<div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="display:flex;flex-direction:column"><span style="font:500 14px/20px var(--font-body);color:var(--text-strong)">Cancellation notice</span><span style="font:400 11px/16px var(--font-body);color:var(--text-subtle)">Hours before class for a free cancellation</span></span><div style="display:flex;align-items:center;gap:6px"><button onClick="{{ o.chDec }}" aria-label="Decrease" style="width:36px;height:36px;border-radius:8px;border:1px solid #E5E7EB;background:#fff;cursor:pointer">−</button><span style="width:40px;text-align:center;font:700 16px/20px var(--font-body)">{{ o.set.cancelHours }}h</span><button onClick="{{ o.chInc }}" aria-label="Increase" style="width:36px;height:36px;border-radius:8px;border:1px solid #E5E7EB;background:#fff;cursor:pointer">+</button></div></div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="display:flex;flex-direction:column"><span style="font:500 14px/20px var(--font-body);color:var(--text-strong)">Waitlist claim window</span><span style="font:400 11px/16px var(--font-body);color:var(--text-subtle)">Time to claim an offered place</span></span><div style="display:flex;align-items:center;gap:6px"><button onClick="{{ o.ohDec }}" aria-label="Decrease" style="width:36px;height:36px;border-radius:8px;border:1px solid #E5E7EB;background:#fff;cursor:pointer">−</button><span style="width:40px;text-align:center;font:700 16px/20px var(--font-body)">{{ o.set.offerHours }}h</span><button onClick="{{ o.ohInc }}" aria-label="Increase" style="width:36px;height:36px;border-radius:8px;border:1px solid #E5E7EB;background:#fff;cursor:pointer">+</button></div></div>
+<button onClick="{{ o.togRem }}" role="switch" style="border:none;background:none;padding:0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font:500 14px/20px var(--font-body);color:var(--text-strong)">Class reminder emails<span style="width:46px;height:26px;border-radius:13px;background:{{ o.set.rem.bg }};padding:3px;display:flex"><span style="width:20px;height:20px;border-radius:50%;background:#fff;transform:translateX({{ o.set.rem.x }});transition:transform 150ms"></span></span></button>
+</div>
+<div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 4px 6px -1px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:6px;font:400 13px/20px var(--font-body);color:var(--text-body)"><span style="font:600 16px/22px var(--font-display);color:var(--text-strong)">Studio Details</span><span>{{ o.studio.name }}</span><span>{{ o.studio.address }}</span><span>{{ o.studio.email }}</span><span>Time zone {{ o.studio.tz }} · Currency {{ o.studio.currency }}</span></div>
+<sc-if value="{{ o.isOwner }}"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.resetDemo }}" hint-size="100%,48px">Reset Demo Data</x-import></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{ o.sc.audit }}">
+<div data-screen-label="O Audit" style="padding:16px 16px 28px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ o.auditList }}" as="a" hint-placeholder-count="5"><div style="background:#fff;border-radius:10px;padding:10px 12px;box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;gap:2px"><span style="font:500 13px/18px var(--font-body);color:var(--text-strong)">{{ a.action }}</span><span style="font:400 11px/16px var(--font-body);color:var(--text-subtle)">{{ a.actor }} · {{ a.when }}</span></div></sc-for>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{ o.hasToast }}"><div role="status" aria-live="polite" style="position:absolute;left:16px;right:16px;bottom:96px;z-index:30;background:#111827;color:#fff;border-radius:12px;padding:12px 16px;font:500 14px/20px var(--font-body);box-shadow:0 20px 25px -5px rgba(0,0,0,.25)">{{ o.toast }}</div></sc-if>
+<sc-if value="{{ o.showTabs }}">
+<nav aria-label="Studio" style="flex:none;height:84px;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-top:1px solid var(--border-default);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 4px 22px;position:relative;z-index:3">
+<button onClick="{{ o.go.dash }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ o.tab.dash }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg>Dashboard</button>
+<button onClick="{{ o.go.sessions }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ o.tab.sessions }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2"></rect><path d="M3 9.5h18M8 2.5v4M16 2.5v4"></path></svg>Timetable</button>
+<button onClick="{{ o.go.bookings }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ o.tab.bookings }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2.5 2.5L16 9"></path><rect x="3" y="3" width="18" height="18" rx="3"></rect></svg>Bookings</button>
+<button onClick="{{ o.go.customers }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ o.tab.customers }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c1-3.5 3.5-5 6.5-5s5.5 1.5 6.5 5"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M17 14c2.3 0 3.8 1.2 4.5 3.5"></path></svg>Customers</button>
+<button onClick="{{ o.go.more }}" style="border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:{{ o.tab.more }};font:500 11px/14px var(--font-body)"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="19" cy="12" r="1.8"></circle></svg>More</button>
+</nav>
+</sc-if>
+<sc-if value="{{ o.sheetOpen }}">
+<div style="position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;justify-content:flex-end">
+<div onClick="{{ o.closeSheet }}" style="position:absolute;inset:0;background:rgba(17,24,39,.5)"></div>
+<div role="dialog" aria-modal="true" class="phone-scroll" style="position:relative;background:#fff;border-radius:20px 20px 0 0;max-height:88%;overflow-y:auto;padding:10px 20px 32px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:center;position:relative;min-height:28px;align-items:center"><span style="width:40px;height:5px;border-radius:3px;background:#D1D5DB"></span><button onClick="{{ o.closeSheet }}" aria-label="Close" style="position:absolute;right:-8px;top:-4px;width:44px;height:44px;border:none;background:none;cursor:pointer;font:400 24px/24px var(--font-body);color:var(--text-muted)">×</button></div>
+<sc-if value="{{ o.sh.confirm }}">
+<span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">{{ o.cf.title }}</span>
+<span style="font:400 14px/22px var(--font-body);color:var(--text-body)">{{ o.cf.body }}</span>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ o.runConfirm }}" hint-size="100%,48px">{{ o.cf.label }}</x-import>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.closeSheet }}" hint-size="100%,48px">Go Back</x-import>
+</sc-if>
+<sc-if value="{{ o.sh.booking }}">
+<div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><div style="display:flex;flex-direction:column"><span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">{{ o.bd.name }}</span><span style="font:400 13px/18px var(--font-body);color:var(--text-muted)">{{ o.bd.email }}</span></div><span style="font:600 11px/22px var(--font-body);padding:0 8px;border-radius:6px;background:{{ o.bd.statusBg }};color:{{ o.bd.statusFg }}">{{ o.bd.statusLabel }}</span></div>
+<div style="background:var(--surface-alt);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;font:400 13px/20px var(--font-body);color:var(--text-body)"><span style="font-weight:600;color:var(--text-strong)">{{ o.bd.cls }}</span><span>{{ o.bd.when }} · {{ o.bd.ins }}</span><span>{{ o.bd.pay }}</span><span style="color:var(--text-subtle);font-size:11px">Ref {{ o.bd.ref }}</span></div>
+<sc-if value="{{ o.bd.canAct }}">
+<div style="display:flex;gap:8px"><div style="flex:1"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.bd.att }}" hint-size="100%,48px">Attended</x-import></div><div style="flex:1"><x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.bd.ns }}" hint-size="100%,48px">No-show</x-import></div></div>
+<span style="font:400 12px/18px var(--font-body);color:var(--text-muted)">{{ o.bd.lateNote }}</span>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="outline" fullWidth="{{ true }}" onClick="{{ o.bd.cancelStd }}" hint-size="100%,48px">Cancel (Standard Policy)</x-import>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ o.bd.cancelOverride }}" hint-size="100%,48px">Cancel &amp; Restore Credit/Refund</x-import>
+</sc-if>
+<button onClick="{{ o.bd.openCustomer }}" style="border:none;background:none;color:var(--brand-rose);font:600 14px/20px var(--font-body);cursor:pointer;padding:8px">View Customer Profile</button>
+</sc-if>
+<sc-if value="{{ o.sh.adjust }}">
+<span style="font:700 22px/28px var(--font-display);color:var(--text-strong)">Adjust Credits</span>
+<span style="font:400 14px/20px var(--font-body);color:var(--text-body)">{{ o.adj.name }} · current balance {{ o.adj.bal }}</span>
+<div style="display:flex;align-items:center;justify-content:center;gap:16px"><button onClick="{{ o.adj.dec }}" aria-label="Decrease" style="width:48px;height:48px;border-radius:10px;border:1px solid #E5E7EB;background:#fff;font:600 20px/20px var(--font-body);cursor:pointer">−</button><span style="font:700 32px/40px var(--font-display);color:var(--brand-rose);min-width:60px;text-align:center">{{ o.adj.delta }}</span><button onClick="{{ o.adj.inc }}" aria-label="Increase" style="width:48px;height:48px;border-radius:10px;border:1px solid #E5E7EB;background:#fff;font:600 20px/20px var(--font-body);cursor:pointer">+</button></div>
+<span style="font:500 13px/18px var(--font-body);color:var(--text-muted);text-align:center">New balance: {{ o.adj.after }}</span>
+<label style="display:flex;flex-direction:column;gap:6px;font:500 14px/20px var(--font-body);color:var(--text-body)">Reason (required)<input value="{{ o.adj.reason }}" onChange="{{ o.adj.onReason }}" placeholder="e.g. Goodwill — class moved" style="height:48px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font:400 15px/22px var(--font-body);outline-color:#EC0F8C"></label>
+<sc-if value="{{ o.adj.hasErr }}"><div role="alert" style="font:500 14px/20px var(--font-body);color:#991B1B;background:#FEE2E2;border-radius:8px;padding:10px 12px">{{ o.adj.err }}</div></sc-if>
+<x-import component-from-global-scope="SonshineHollisticDesignSystem_de4847.Button" variant="block" onClick="{{ o.adj.save }}" hint-size="100%,48px">Save Adjustment</x-import>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;layout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;both&quot;,&quot;customer&quot;,&quot;owner&quot;],&quot;default&quot;:&quot;both&quot;,&quot;tsType&quot;:&quot;'both'|'customer'|'owner'&quot;},&quot;showDemoBanner&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { ready: false, mobile: window.innerWidth < 600, mApp: /[?&]app=owner/.test(location.search) ? 'owner' : 'customer' };
+  onResize = () => { const m = window.innerWidth < 600; if (m !== this.state.mobile) this.setState({ mobile: m }); };
+  cRef = React.createRef();
+  oRef = React.createRef();
+  componentDidMount() { window.addEventListener('resize', this.onResize); const t = () => { if (window.SonshineData && window.SonshineEngine && window.SonshineViews) this.init(); else this.poll = setTimeout(t, 40); }; t(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); clearTimeout(this.poll); clearTimeout(this.ct); clearTimeout(this.ot); }
+  init() {
+    const H = window.SonshineData, today = H.iso(new Date()); let saved = null;
+    try { const raw = localStorage.getItem('sonshine-demo-v1'); if (raw) { const s = JSON.parse(raw); if (s.day === today && s.db) saved = s; } } catch (e) {}
+    this.eng = new window.SonshineEngine.Engine(saved ? saved.db : window.SonshineEngine.seed());
+    const cUid = saved && saved.cUid && this.eng.user(saved.cUid) ? saved.cUid : null;
+    const oUid = saved && saved.oUid && this.eng.isStaff(saved.oUid) ? saved.oUid : null;
+    this.setState({ ready: true, cUid, cScreen: cUid ? 'home' : 'welcome', cStack: [], cP: {}, cSheet: null, cDay: today, cCat: 'All', cQ: '', cF: { ins: '', format: '', level: '' }, btab: 'upcoming',
+      form: { first: '', last: '', email: 'emma@demo.test', pw: '', pw2: '', terms: false }, authMode: 'signin', authErr: '', authNote: '', pendingAuth: null,
+      bk: { opt: 'card', card: 'ok', busy: false, err: '' }, rq: { date: '', slot: '', msg: '', err: '', done: false }, cToast: '',
+      oUid, oScreen: oUid ? 'dash' : 'login', oStack: [], oP: {}, oSheet: null, oConfirm: null, oSel: null, oDay: today, oQ: '', oCQ: '', oPQ: '', oBStatus: 'all',
+      oForm: { email: 'son@demo.test', pw: '', err: '' }, oNew: { cls: 'vin', date: today, start: '18:00', cap: 14, repeat: 1 }, oAdj: { delta: 1, reason: '', err: '' }, oNotes: null, oPrice: {}, oManual: '', rPeriod: 30, oToast: '' }, () => this.persist());
+  }
+  persist() { try { localStorage.setItem('sonshine-demo-v1', JSON.stringify({ day: window.SonshineData.iso(new Date()), db: this.eng.db, cUid: this.state.cUid, oUid: this.state.oUid })); } catch (e) {} }
+  commit() { this.persist(); this.forceUpdate(); }
+  resetDemo() { this.eng.db = window.SonshineEngine.seed(); this.commit(); this.toast('o', 'Demo data reset.'); }
+  toast(w, m) { const k = w + 't'; clearTimeout(this[k]); this.setState({ [w + 'Toast']: m }); this[k] = setTimeout(() => this.setState({ [w + 'Toast']: '' }), 3200); }
+  cGo(screen, p) { this.setState(s => ({ cStack: [...s.cStack, { screen: s.cScreen, p: s.cP }], cScreen: screen, cP: p || {}, cSheet: null })); }
+  cTab(t) { this.setState({ cScreen: t, cStack: [], cP: {}, cSheet: null }); }
+  cBack() { this.setState(s => { const st = s.cStack.slice(), prev = st.pop(); return prev ? { cStack: st, cScreen: prev.screen, cP: prev.p, cSheet: null } : { cScreen: s.cUid ? 'home' : 'welcome', cP: {}, cSheet: null }; }); }
+  oGo(screen, p) { this.setState(s => ({ oStack: [...s.oStack, { screen: s.oScreen, p: s.oP }], oScreen: screen, oP: p || {}, oSheet: null, oNotes: null })); }
+  oTab(t) { this.setState({ oScreen: t, oStack: [], oP: {}, oSheet: null }); }
+  oBack() { this.setState(s => { const st = s.oStack.slice(), prev = st.pop(); return prev ? { oStack: st, oScreen: prev.screen, oP: prev.p, oSheet: null } : { oScreen: 'dash', oP: {}, oSheet: null }; }); }
+  componentDidUpdate(pp, ps) {
+    if (ps.cScreen !== this.state.cScreen || ps.cP !== this.state.cP) { const el = this.cRef.current; if (el) el.scrollTop = 0; }
+    if (ps.oScreen !== this.state.oScreen || ps.oP !== this.state.oP) { const el = this.oRef.current; if (el) el.scrollTop = 0; }
+  }
+  renderVals() {
+    const L = this.props.layout || 'both';
+    const mob = this.state.mobile, mA = this.state.mApp;
+    const fr = mob ? { mob: true, desk: false, pad: '0px', gap: '0px', sg: '0px', ow: '100vw', oh: '100dvh', or: '0px', op: '0px', sh: 'none', iw: '100%', ih: '100%', ir: '0px', sb: 'env(safe-area-inset-top, 0px)', vis: 'hidden' }
+      : { mob: false, desk: true, pad: '32px 20px 72px', gap: '56px', sg: '14px', ow: '410px', oh: '864px', or: '56px', op: '10px', sh: '0 25px 50px -12px rgba(0,0,0,.35)', iw: '390px', ih: '844px', ir: '46px', sb: '44px', vis: 'visible' };
+    const base = { fr, toOwner: () => this.setState({ mApp: 'owner' }), toCustomer: () => this.setState({ mApp: 'customer' }), loading: !this.state.ready, showCustomer: mob ? mA === 'customer' : L !== 'owner', showOwner: mob ? mA === 'owner' : L !== 'customer', cRef: this.cRef, oRef: this.oRef, showBanner: this.props.showDemoBanner !== false };
+    if (!this.state.ready) return { ...base, c: { sc: {}, tab: {}, go: {}, sh: {} }, o: { sc: {}, tab: {}, go: {}, sh: {} } };
+    return { ...base, c: window.SonshineViews.customer(this), o: window.SonshineViews.owner(this) };
+  }
+}
+</script>
+</body>
+</html>

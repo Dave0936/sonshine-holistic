@@ -1,0 +1,24 @@
+:root{
+--font-display:"Playfair Display",ui-serif,Georgia,"Times New Roman",serif;
+--font-body:Poppins,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--font-ui-alt:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+/* Type scale (size / line-height) straight from the Figma frames */
+--type-h1:700 60px/60px var(--font-display);
+--type-h1-page:700 48px/48px var(--font-display);
+--type-h2:700 36px/40px var(--font-display);
+--type-h3-footer:700 24px/32px var(--font-display);
+--type-h3-card:600 20px/28px var(--font-display);
+--type-h3-table:700 18px/28px var(--font-display);
+--type-lead:400 20px/28px var(--font-body);
+--type-body-lg:400 18px/28px var(--font-body);
+--type-body:400 16px/24px var(--font-body);
+--type-body-card:400 16px/26px var(--font-body);
+--type-small:400 14px/20px var(--font-body);
+--type-table:400 14px/24px var(--font-body);
+--type-label:500 14px/20px var(--font-body);
+--type-button-lg:600 18px/28px var(--font-body);
+--type-button:600 16px/24px var(--font-body);
+--type-button-sm:600 14px/24px var(--font-body);
+--type-quote:italic 400 18px/29.25px var(--font-body);
+--type-chip:500 12px/20px var(--font-body);
+}
