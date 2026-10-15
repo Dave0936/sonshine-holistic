@@ -3,6 +3,7 @@ import CustomerApp from './customer/CustomerApp';
 import OwnerApp from './owner/OwnerApp';
 import { makeClient } from './lib/studio';
 import { IMG } from './lib/format';
+import type { Session } from '@supabase/supabase-js';
 
 const customerClient = makeClient('sonshine-customer');
 const ownerClient = makeClient('sonshine-owner');
@@ -10,9 +11,9 @@ const ownerClient = makeClient('sonshine-owner');
 // ?app=owner opens Studio Management on a phone; ?layout=customer|owner shows one phone on a computer.
 const params = new URLSearchParams(location.search);
 
-// Staff who sign in on the customer side are signed in to Studio Management instead.
-const staffSignIn = (show: () => void) => async (email: string, password: string) => {
-  const { error } = await ownerClient.auth.signInWithPassword({ email, password });
+// Staff who sign in on the customer side are moved to Studio Management with the same session.
+const staffSignIn = (show: () => void) => async (session: Session) => {
+  const { error } = await ownerClient.auth.setSession({ access_token: session.access_token, refresh_token: session.refresh_token });
   if (error) return 'Couldn’t open Studio Management — please sign in there directly.';
   show();
   return null;
