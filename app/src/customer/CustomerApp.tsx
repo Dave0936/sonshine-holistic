@@ -19,7 +19,8 @@ const SUBPAGES = ['events', 'services', 'team', 'studio', 'policy', 'notifs', 'e
 const TITLES: Record<string, string> = { cls: 'Class Details', events: 'Workshops & Events', event: 'Event Details', services: 'Specialist Services', service: 'Service', team: 'Meet the Team', instructor: 'Instructor', studio: 'Our Studio', policy: 'Booking & Cancellation', notifs: 'Notifications' };
 const card = { ok: 'ok', fail: 'fail' } as const;
 
-export default function CustomerApp({ sb, mobile, onSwitch }: { sb: SupabaseClient; mobile: boolean; onSwitch?: () => void }) {
+// onStaffSignIn: an owner or admin who signs in here is moved to Studio Management instead.
+export default function CustomerApp({ sb, mobile, onSwitch, onStaffSignIn }: { sb: SupabaseClient; mobile: boolean; onSwitch?: () => void; onStaffSignIn?: (email: string, pw: string) => Promise<string | null> }) {
   const { user, db, error, rpc, reload } = useStudio(sb, 'customer');
   const [nav, setNav] = useState<Nav>({ screen: '', p: {} });
   const [stack, setStack] = useState<Nav[]>([]);
@@ -123,9 +124,16 @@ export default function CustomerApp({ sb, mobile, onSwitch }: { sb: SupabaseClie
     setAuthBusy(true);
     const { data, error: er } = await sb.auth.signInWithPassword({ email: F.email.trim().toLowerCase(), password: F.pw });
     if (er || !data.user) { setAuthBusy(false); return setAuthErr(/confirm/i.test(er?.message || '') ? 'Please confirm your email address first — check your inbox for the link.' : 'That email and password don’t match an account.'); }
-    const { data: prof } = await sb.from('profiles').select('first, active').eq('id', data.user.id).single();
+    const { data: prof } = await sb.from('profiles').select('first, active, role').eq('id', data.user.id).single();
+    if (prof && !prof.active) { setAuthBusy(false); await sb.auth.signOut(); return setAuthErr('This account has been deactivated. Please contact the studio.'); }
+    if (prof && prof.role !== 'customer' && onStaffSignIn) {
+      const err = await onStaffSignIn(F.email.trim().toLowerCase(), F.pw);
+      await sb.auth.signOut(); setAuthBusy(false); setForm(f => ({ ...f, pw: '', pw2: '' }));
+      setStack([]); setNav({ screen: 'welcome', p: {} });
+      if (err) return setAuthErr(err);
+      return;
+    }
     setAuthBusy(false);
-    if (prof && !prof.active) { await sb.auth.signOut(); return setAuthErr('This account has been deactivated. Please contact the studio.'); }
     afterAuth(`Welcome back${prof?.first ? ', ' + prof.first : ''}`);
   };
   const submitRegister = async () => {

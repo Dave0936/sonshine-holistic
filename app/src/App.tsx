@@ -10,6 +10,14 @@ const ownerClient = makeClient('sonshine-owner');
 // ?app=owner opens Studio Management on a phone; ?layout=customer|owner shows one phone on a computer.
 const params = new URLSearchParams(location.search);
 
+// Staff who sign in on the customer side are signed in to Studio Management instead.
+const staffSignIn = (show: () => void) => async (email: string, password: string) => {
+  const { error } = await ownerClient.auth.signInWithPassword({ email, password });
+  if (error) return 'Couldn’t open Studio Management — please sign in there directly.';
+  show();
+  return null;
+};
+
 export default function App() {
   const [mobile, setMobile] = useState(() => window.innerWidth < 600);
   const [mApp, setMApp] = useState(params.get('app') === 'owner' ? 'owner' : 'customer');
@@ -19,7 +27,7 @@ export default function App() {
     const to = (a: string) => () => { setMApp(a); const u = new URL(location.href); if (a === 'owner') u.searchParams.set('app', 'owner'); else u.searchParams.delete('app'); history.replaceState(null, '', u); };
     return mApp === 'owner'
       ? <OwnerApp sb={ownerClient} mobile onSwitch={to('customer')} />
-      : <CustomerApp sb={customerClient} mobile onSwitch={to('owner')} />;
+      : <CustomerApp sb={customerClient} mobile onSwitch={to('owner')} onStaffSignIn={staffSignIn(to('owner'))} />;
   }
 
   const layout = params.get('layout');
@@ -40,7 +48,7 @@ export default function App() {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 56, justifyContent: 'center', alignItems: 'flex-start' }}>
         {layout !== 'owner' && <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
           <span style={{ font: '600 12px/20px var(--font-body)', letterSpacing: '.08em', textTransform: 'uppercase', color: '#fff', background: 'var(--brand-rose)', borderRadius: 6, padding: '4px 12px' }}>Customer App</span>
-          <CustomerApp sb={customerClient} mobile={false} />
+          <CustomerApp sb={customerClient} mobile={false} onStaffSignIn={staffSignIn(() => document.querySelector('[aria-label="Studio Management"]')?.scrollIntoView({ behavior: 'smooth' }))} />
         </div>}
         {layout !== 'customer' && <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
           <span style={{ font: '600 12px/20px var(--font-body)', letterSpacing: '.08em', textTransform: 'uppercase', color: '#fff', background: '#0F172A', borderRadius: 6, padding: '4px 12px' }}>Studio Management</span>
