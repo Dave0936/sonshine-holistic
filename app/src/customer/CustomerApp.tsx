@@ -1,7 +1,7 @@
 // Customer app: welcome, sign-in, home, timetable, class details and booking, bookings, passes, profile,
 // events, services, team, studio, policy and notifications.
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import type { SupabaseClient } from '@supabase/supabase-js';
+import type { SupabaseClient, Session as AuthSession } from '@supabase/supabase-js';
 import { Button, GlassButton, SmallButton, Avatar } from '../ds';
 import { Model, chip } from '../lib/model';
 import { useStudio } from '../lib/studio';
@@ -20,7 +20,7 @@ const TITLES: Record<string, string> = { cls: 'Class Details', events: 'Workshop
 const card = { ok: 'ok', fail: 'fail' } as const;
 
 // onStaffSignIn: an owner or admin who signs in here is moved to Studio Management instead.
-export default function CustomerApp({ sb, mobile, onSwitch, onStaffSignIn }: { sb: SupabaseClient; mobile: boolean; onSwitch?: () => void; onStaffSignIn?: (email: string, pw: string) => Promise<string | null> }) {
+export default function CustomerApp({ sb, mobile, onSwitch, onStaffSignIn }: { sb: SupabaseClient; mobile: boolean; onSwitch?: () => void; onStaffSignIn?: (session: AuthSession) => Promise<string | null> }) {
   const { user, db, error, rpc, reload } = useStudio(sb, 'customer');
   const [nav, setNav] = useState<Nav>({ screen: '', p: {} });
   const [stack, setStack] = useState<Nav[]>([]);
@@ -65,6 +65,21 @@ export default function CustomerApp({ sb, mobile, onSwitch, onStaffSignIn }: { s
   const e = useMemo(() => (db ? new Model(db) : null), [db]);
   const uid = user?.id ?? null;
   const me = e && uid ? e.user(uid) : undefined;
+
+  const handing = useRef('');
+  // Moves a staff session to Studio Management. Local sign-out only: a global one would revoke the session just handed over.
+  const handOff = async (session: AuthSession) => {
+    handing.current = session.user.id;
+    const err = await onStaffSignIn!(session);
+    await sb.auth.signOut({ scope: 'local' }); setForm(f => ({ ...f, pw: '', pw2: '' }));
+    setStack([]); setSheet(null); setNav({ screen: 'welcome', p: {} });
+    if (err) { setAuthErr(err); setAuthMode('signin'); setNav({ screen: 'auth', p: {} }); }
+  };
+  // A staff account still signed in on the customer side (e.g. from before the hand-off existed) goes to Studio Management too.
+  useEffect(() => {
+    if (!onStaffSignIn || !me || me.role === 'customer' || handing.current === me.id) return;
+    sb.auth.getSession().then(({ data }) => { if (data.session?.user.id === me.id && handing.current !== me.id) handOff(data.session); });
+  });
 
   // Resume a booking the guest started before signing in, once their data has loaded.
   useEffect(() => {
@@ -126,13 +141,7 @@ export default function CustomerApp({ sb, mobile, onSwitch, onStaffSignIn }: { s
     if (er || !data.user) { setAuthBusy(false); return setAuthErr(/confirm/i.test(er?.message || '') ? 'Please confirm your email address first — check your inbox for the link.' : 'That email and password don’t match an account.'); }
     const { data: prof } = await sb.from('profiles').select('first, active, role').eq('id', data.user.id).single();
     if (prof && !prof.active) { setAuthBusy(false); await sb.auth.signOut(); return setAuthErr('This account has been deactivated. Please contact the studio.'); }
-    if (prof && prof.role !== 'customer' && onStaffSignIn) {
-      const err = await onStaffSignIn(F.email.trim().toLowerCase(), F.pw);
-      await sb.auth.signOut(); setAuthBusy(false); setForm(f => ({ ...f, pw: '', pw2: '' }));
-      setStack([]); setNav({ screen: 'welcome', p: {} });
-      if (err) return setAuthErr(err);
-      return;
-    }
+    if (prof && prof.role !== 'customer' && onStaffSignIn && data.session) { await handOff(data.session); setAuthBusy(false); return; }
     setAuthBusy(false);
     afterAuth(`Welcome back${prof?.first ? ', ' + prof.first : ''}`);
   };
