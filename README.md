@@ -23,3 +23,9 @@ The design medium is **HTML/CSS/JS** — these are prototypes, not production co
 - `README.md` — this file
 - `chats/` — conversation transcripts (read these!)
 - `project/` — the `Sonshine Holistic Yoga App` project files (HTML prototypes, assets, components)
+
+---
+
+## Implementation
+
+The design is implemented in [`app/`](app/README.md): a React + Vite PWA, backed by Supabase. The migrations are in [`supabase/migrations`](supabase/migrations).

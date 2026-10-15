@@ -1,0 +1,36 @@
+/* Semantic aliases over the raw Figma variables in fig-tokens.css */
+:root{
+--brand-rose:var(--color-rose-49);          /* #EC0F8C primary */
+--brand-rose-deep:var(--color-rose-51);     /* #DB2777 gradient end */
+--brand-rose-soft:var(--color-rose-60);     /* #EC4899 small buttons, avatar */
+--brand-rose-ink:var(--color-rose-42);      /* #BE185D price-chip text */
+--brand-rose-tint:var(--color-rose-49-15);  /* nav hover wash */
+--brand-gradient:linear-gradient(90deg,rgb(236,15,140) 0%,rgb(219,39,119) 100%); /* @kind color */
+--brand-gradient-rev:linear-gradient(90deg,rgb(219,39,119) 0%,rgb(236,15,140) 100%); /* @kind color */
+--whatsapp-green:var(--color-spring-green-49);
+--whatsapp-ink:var(--color-chartreuse-green-10);
+
+--text-strong:var(--color-azure-11);   /* #111827 */
+--text-heading:var(--color-azure-17);  /* #1F2937 */
+--text-body:var(--color-azure-27);     /* #374151 */
+--text-muted:var(--color-azure-34);    /* #4B5563 */
+--text-subtle:var(--color-grey-46);    /* #6B7280 */
+--text-on-dark:var(--color-azure-84);  /* #D1D5DB */
+--text-on-dark-muted:var(--color-azure-65); /* #9CA3AF */
+--text-on-brand:var(--color-white-solid);
+
+--surface-page:var(--color-white-solid);
+--surface-alt:var(--color-grey-98);    /* #F9FAFB */
+--surface-sunken:var(--color-grey-96); /* #F3F4F6 */
+--surface-blush:var(--color-grey-97);  /* #FDF2F8 section wash */
+--surface-blush-strong:var(--color-grey-95); /* #FCE7F3 icon circle */
+--surface-cream:var(--color-grey-92-60);     /* table body rgba(255,237,213,.6) */
+--surface-cream-hover:var(--color-grey-96-80); /* rgba(255,247,237,.8) */
+--surface-footer:var(--color-azure-11-2);    /* #0F172A */
+--surface-hero:var(--color-azure-11);
+--overlay-hero:var(--color-black-60);
+
+--border-default:var(--color-grey-91);  /* #E5E7EB */
+--border-hairline:var(--color-blue-4-10);
+--border-footer:var(--color-azure-27);
+}
