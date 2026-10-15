@@ -5,7 +5,7 @@ export type BookingStatus = 'confirmed' | 'waitlisted' | 'offered' | 'attended' 
 
 export interface Settings { cancel_hours: number; offer_hours: number; reminders: boolean }
 export interface Instructor { id: string; name: string; role: string; ini: string; bio: string; active: boolean; sort: number }
-export interface ClassRow { id: string; name: string; cat: string; ins: string; dur: number; level: string; price: number; pass: boolean; format: Format; img: string; descr: string; access: string }
+export interface ClassRow { id: string; name: string; cat: string; ins: string; dur: number; level: string; price: number; pass: boolean; format: Format; img: string; descr: string; access: string; active: boolean }
 export interface Product { id: string; name: string; descr: string; price: number; credits: number; weeks: number; scope: 'adult' | 'kids'; on_sale: boolean; sort: number }
 export interface Service { id: string; name: string; practitioner: string; img: string; duration: string; price_label: string; location: string; descr: string; prep: string; caution: string; sort: number }
 export interface EventRow {
