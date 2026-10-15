@@ -4,8 +4,8 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { Avatar, Button, SmallButton } from '../ds';
 import { Model, HOLDS, chip } from '../lib/model';
 import { useStudio } from '../lib/studio';
-import { STUDIO, st } from '../lib/content';
-import { IMG, addDays, download, fmtD, fmtDL, fmtT, fmtTs, fmtTsT, gbp, greetWord, hhmm, iso, ms, todayIso } from '../lib/format';
+import { CATS, STUDIO, st } from '../lib/content';
+import { IMG, img, addDays, download, fmtD, fmtDL, fmtT, fmtTs, fmtTsT, gbp, greetWord, hhmm, iso, ms, todayIso } from '../lib/format';
 import type { Session } from '../lib/types';
 import { BackHeader, Chip, DayStrip, Err, ICONS, NavRow, Phone, Pill, Scroll, Sheet, Spinner, LoadError, Stepper, TabBar, Toast, Toggle } from '../ui';
 
@@ -14,7 +14,16 @@ type SheetName = null | 'confirm' | 'booking' | 'adjust';
 type Confirm = { title: string; body: string; label: string; run: () => void };
 
 const TABS = ['dash', 'sessions', 'bookings', 'customers', 'more'];
-const TITLES: Record<string, string> = { session: 'Session', newSession: 'Add Sessions', customer: 'Customer', requests: 'Appointment Requests', events: 'Events & Workshops', products: 'Passes & Pricing', payments: 'Payments', reports: 'Reports', instructors: 'Instructors', settings: 'Studio Settings', audit: 'Audit Log' };
+// Photos a class can use: the studio's own, plus the Unsplash placeholders already in use.
+const U = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=75`;
+const PHOTOS: [string, string][] = [
+  ['assets/studio-mats.png', 'Studio with mats'], ['assets/hero-home.jpg', 'Class in the studio'], ['assets/hero-classes.jpg', 'Class in progress'],
+  ['assets/studio-buddha.png', 'Studio Buddha'], ['assets/studio-exterior.png', 'Barden House'], ['assets/kids-bigger.png', 'Kids yoga'],
+  ['assets/kids-teen.png', 'Teen yoga'], [U('photo-1593810451410-8fbb422cc15e'), 'Singing bowls'], [U('photo-1447452001602-7090c7ab2db3'), 'Misty landscape']];
+const EMPTY_CLASS = { id: '', name: '', cat: CATS[0], ins: '', dur: 60, level: 'All levels', price: '9.00', pass: true, format: 'In studio', img: PHOTOS[0][0], descr: '', access: '', err: '', busy: false };
+const EMPTY_INS = { id: '', name: '', role: 'Yoga Instructor', bio: '', err: '', busy: false };
+
+const TITLES: Record<string, string> = { session: 'Session', newSession: 'Add Sessions', customer: 'Customer', requests: 'Appointment Requests', events: 'Events & Workshops', products: 'Passes & Pricing', payments: 'Payments', reports: 'Reports', instructors: 'Instructors', classes: 'Classes', classEdit: 'Class', insEdit: 'Instructor', settings: 'Studio Settings', audit: 'Audit Log' };
 
 export default function OwnerApp({ sb, mobile, onSwitch }: { sb: SupabaseClient; mobile: boolean; onSwitch?: () => void }) {
   const { user, db, error, rpc, reload } = useStudio(sb, 'owner');
@@ -37,6 +46,8 @@ export default function OwnerApp({ sb, mobile, onSwitch }: { sb: SupabaseClient;
   const [notes, setNotes] = useState<string | null>(null);
   const [prices, setPrices] = useState<Record<string, string>>({});
   const [period, setPeriod] = useState(30);
+  const [cf2, setCf2] = useState(EMPTY_CLASS);
+  const [inf, setInf] = useState(EMPTY_INS);
 
   const toast = (m: string) => { clearTimeout(toastTimer.current); setToastText(m); toastTimer.current = setTimeout(() => setToastText(''), 3200); };
   const go = (screen: string, p: Record<string, string> = {}) => { setStack(s => [...s, nav]); setNav({ screen, p }); setSheet(null); setNotes(null); };
@@ -108,6 +119,17 @@ export default function OwnerApp({ sb, mobile, onSwitch }: { sb: SupabaseClient;
       <div style={{ display: 'flex', justifyContent: 'space-between', font: '400 12px/16px var(--font-body)', color: 'var(--text-muted)' }}><span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{v.insName} · {v.format}</span><span style={{ flex: 'none', paddingLeft: 8 }}>{v.statusLabel} {v.wait}</span></div>
     </div>); };
   const pend = D.requests.filter(r => r.status === 'pending');
+  const openClass = (id?: string) => {
+    const c = id ? D.classes.find(x => x.id === id) : undefined;
+    setCf2(c ? { ...EMPTY_CLASS, id: c.id, name: c.name, cat: c.cat, ins: c.ins, dur: c.dur, level: c.level, price: (c.price / 100).toFixed(2), pass: c.pass, format: c.format, img: c.img, descr: c.descr, access: c.access }
+      : { ...EMPTY_CLASS, ins: D.instructors.find(i => i.active)?.id || '' });
+    go('classEdit');
+  };
+  const openIns = (id?: string) => {
+    const i = id ? D.instructors.find(x => x.id === id) : undefined;
+    setInf(i ? { ...EMPTY_INS, id: i.id, name: i.name, role: i.role, bio: i.bio } : EMPTY_INS);
+    go('insEdit');
+  };
 
   // ---------------------------------------------------------------- screens
   const screens: Record<string, () => ReactNode> = {
@@ -240,7 +262,7 @@ export default function OwnerApp({ sb, mobile, onSwitch }: { sb: SupabaseClient;
       };
       return (
         <div style={{ padding: '20px 16px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <label className="field">Class<select className="input" value={nw.cls} onChange={ev => setNw({ ...nw, cls: ev.target.value })}>{D.classes.map(x => <option key={x.id} value={x.id}>{x.name} — {e.ins(x.ins).name}</option>)}</select></label>
+          <label className="field">Class<select className="input" value={nw.cls} onChange={ev => setNw({ ...nw, cls: ev.target.value })}>{D.classes.filter(x => x.active || x.id === nw.cls).map(x => <option key={x.id} value={x.id}>{x.name} — {e.ins(x.ins).name}</option>)}</select></label>
           <label className="field">Date<select className="input" value={nw.date} onChange={ev => setNw({ ...nw, date: ev.target.value })}>{Array.from({ length: 56 }, (_, i) => iso(addDays(t, i))).map(ds => <option key={ds} value={ds}>{fmtDL(ds)}</option>)}</select></label>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
             <label className="field">Start time<input className="input" type="time" value={nw.start} onChange={ev => setNw({ ...nw, start: ev.target.value })} style={{ fontSize: 15, padding: '0 12px' }} /></label>
@@ -347,6 +369,7 @@ export default function OwnerApp({ sb, mobile, onSwitch }: { sb: SupabaseClient;
           <NavRow label="Passes & Pricing" onClick={() => go('products')} />
           <NavRow label="Payments" onClick={() => go('payments')} />
           <NavRow label="Reports & Export" onClick={() => go('reports')} />
+          <NavRow label="Classes" onClick={() => go('classes')} />
           <NavRow label="Instructors" onClick={() => go('instructors')} />
           <NavRow label="Studio Settings" onClick={() => go('settings')} />
           <NavRow label="Audit Log" onClick={() => go('audit')} />
@@ -481,13 +504,111 @@ export default function OwnerApp({ sb, mobile, onSwitch }: { sb: SupabaseClient;
 
     instructors: () => (
       <div style={{ padding: '16px 16px 28px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {D.instructors.map(i => <div key={i.id} className="card-sm" style={{ padding: '12px 14px', display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+          <span style={{ font: '400 13px/20px var(--font-body)', color: 'var(--text-muted)' }}>Hidden instructors don’t appear to customers.</span>
+          <SmallButton tone="rose" onClick={() => openIns()}>+ Add Instructor</SmallButton>
+        </div>
+        {D.instructors.map(i => <div key={i.id} onClick={() => openIns(i.id)} role="button" tabIndex={0} className="card-sm" style={{ padding: '12px 14px', display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer', opacity: i.active ? 1 : 0.6 }}>
           <Avatar initials={i.ini} size={40} />
-          <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}><span className="t-strong14">{i.name}</span><span style={{ font: '400 11px/16px var(--font-body)', color: 'var(--text-muted)' }}>{D.sessions.filter(s => s.ins === i.id && e.start(s) > now && s.status !== 'cancelled').length} upcoming sessions</span></div>
-          <Toggle on={i.active} onClick={() => act('set_instructor_active', { p_ins: i.id, p_active: !i.active })} style={{ width: 'auto' }} />
+          <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}><span className="t-strong14">{i.name}{i.active ? '' : ' (hidden)'}</span><span style={{ font: '400 11px/16px var(--font-body)', color: 'var(--text-muted)' }}>{i.role} · {D.sessions.filter(s => s.ins === i.id && e.start(s) > now && s.status !== 'cancelled').length} upcoming sessions</span></div>
+          <span onClick={ev => ev.stopPropagation()}><Toggle on={i.active} onClick={() => act('set_instructor_active', { p_ins: i.id, p_active: !i.active })} style={{ width: 'auto' }} /></span>
         </div>)}
       </div>
     ),
+
+    insEdit: () => {
+      const save = async () => {
+        if (!inf.name.trim()) return setInf({ ...inf, err: 'Please enter the instructor’s name.' });
+        setInf({ ...inf, busy: true, err: '' });
+        const r = await rpc('save_instructor', { p_id: inf.id || null, p_name: inf.name, p_role: inf.role, p_bio: inf.bio });
+        if (r.err) return setInf(f => ({ ...f, busy: false, err: r.err! }));
+        setInf(f => ({ ...f, busy: false })); back(); toast(inf.id ? 'Instructor updated.' : `${inf.name.trim()} added to the team.`);
+      };
+      const cur = inf.id ? D.instructors.find(i => i.id === inf.id) : undefined;
+      const classCount = cur ? D.classes.filter(c => c.ins === cur.id && c.active).length : 0;
+      return (
+        <div style={{ padding: '20px 16px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <label className="field">Name<input className="input" value={inf.name} onChange={ev => setInf({ ...inf, name: ev.target.value, err: '' })} placeholder="e.g. Amy Lee" /></label>
+          <label className="field">Role<input className="input" value={inf.role} onChange={ev => setInf({ ...inf, role: ev.target.value })} placeholder="Yoga Instructor" /></label>
+          <label className="field">Bio<textarea className="input" rows={4} value={inf.bio} onChange={ev => setInf({ ...inf, bio: ev.target.value })} placeholder="A sentence or two for the Meet the Team page" /></label>
+          {cur && <Toggle on={cur.active} label="Shown to customers" onClick={() => act('set_instructor_active', { p_ins: cur.id, p_active: !cur.active })} />}
+          <Err text={inf.err} />
+          <Button onClick={save} disabled={inf.busy}>{inf.busy ? 'Saving…' : inf.id ? 'Save Changes' : 'Add Instructor'}</Button>
+          {cur && <Button variant="outline" fullWidth onClick={() => confirm(`Remove ${cur.name}?`, classCount ? `${cur.name} is the instructor for ${classCount} class${classCount > 1 ? 'es' : ''}. They’ll be hidden rather than deleted, so past bookings stay intact — reassign their classes afterwards.` : 'If they’ve never taught a session they’ll be deleted; otherwise they’ll be hidden so past bookings stay intact.', 'Remove Instructor', async () => { const r = await rpc('remove_instructor', { p_id: cur.id }); toast(r.err || String(r.msg)); if (!r.err) back(); })}>Remove Instructor</Button>}
+        </div>
+      );
+    },
+
+    classes: () => {
+      const list = D.classes.slice().sort((a, b) => Number(b.active) - Number(a.active) || a.name.localeCompare(b.name));
+      return (
+        <div style={{ padding: '16px 16px 28px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8 }}>
+            <span style={{ font: '400 13px/20px var(--font-body)', color: 'var(--text-muted)' }}>Add sessions for a class from the Timetable.</span>
+            <SmallButton tone="rose" onClick={() => openClass()}>+ Add Class</SmallButton>
+          </div>
+          {list.map(c => <div key={c.id} onClick={() => openClass(c.id)} role="button" tabIndex={0} className="card-sm" style={{ padding: 10, display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer', opacity: c.active ? 1 : 0.6 }}>
+            <img src={img(c.img)} alt="" style={{ width: 56, height: 56, borderRadius: 8, objectFit: 'cover', flex: 'none' }} />
+            <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <span className="t-card">{c.name}{c.active ? '' : ' (archived)'}</span>
+              <span className="t-muted12">{e.ins(c.ins).name} · {c.dur} min · {c.format}</span>
+              <span style={{ font: '600 12px/16px var(--font-body)', color: 'var(--brand-rose)' }}>{c.price === 0 ? 'Free' : gbp(c.price)}{c.pass ? ' or pass' : ''}</span>
+            </div>
+            <span style={{ color: 'var(--brand-rose)', font: '400 20px/20px var(--font-body)' }}>›</span>
+          </div>)}
+        </div>
+      );
+    },
+
+    classEdit: () => {
+      const cur = cf2.id ? D.classes.find(c => c.id === cf2.id) : undefined;
+      const f = cf2, set = (o: Partial<typeof EMPTY_CLASS>) => setCf2({ ...cf2, ...o, err: '' });
+      const insOpts = D.instructors.filter(i => i.active || i.id === f.ins);
+      const cats = CATS.includes(f.cat) ? CATS : [...CATS, f.cat];
+      const photos: [string, string][] = PHOTOS.some(p => p[0] === f.img) ? PHOTOS : [[f.img, 'Current photo'], ...PHOTOS];
+      const levels = [...new Set(D.classes.map(c => c.level))];
+      const upcoming = cur ? D.sessions.filter(s => s.cls === cur.id && s.status !== 'cancelled' && e.start(s) > now).length : 0;
+      const save = async () => {
+        const price = parseFloat(f.price);
+        if (!f.name.trim()) return set({ err: 'Please enter a class name.' });
+        if (!f.ins) return set({ err: 'Please choose an instructor.' });
+        if (isNaN(price) || price < 0) return set({ err: 'Enter a valid price.' });
+        setCf2({ ...f, busy: true, err: '' });
+        const r = await rpc('save_class', { p_id: f.id || null, p_name: f.name, p_cat: f.cat, p_ins: f.ins, p_dur: Number(f.dur), p_level: f.level, p_price: Math.round(price * 100),
+          p_pass: f.pass, p_format: f.format, p_img: f.img, p_descr: f.descr, p_access: f.access });
+        if (r.err) return setCf2(x => ({ ...x, busy: false, err: r.err! }));
+        setCf2(x => ({ ...x, busy: false })); back(); toast(f.id ? 'Class updated.' : `${f.name.trim()} added — now add sessions from the Timetable.`);
+      };
+      const half = { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 } as const;
+      return (
+        <div style={{ padding: '20px 16px 28px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <img src={img(f.img)} alt="" style={{ width: '100%', height: 140, objectFit: 'cover', borderRadius: 12 }} />
+          <label className="field">Photo<select className="input" value={f.img} onChange={ev => set({ img: ev.target.value })}>{photos.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
+          <label className="field">Class name<input className="input" value={f.name} onChange={ev => set({ name: ev.target.value })} placeholder="e.g. Yin Yoga" /></label>
+          <div style={half}>
+            <label className="field">Category<select className="input" value={f.cat} onChange={ev => set({ cat: ev.target.value })}>{cats.map(c => <option key={c} value={c}>{c}</option>)}</select></label>
+            <label className="field">Instructor<select className="input" value={f.ins} onChange={ev => set({ ins: ev.target.value })}><option value="">Choose…</option>{insOpts.map(i => <option key={i.id} value={i.id}>{i.name}</option>)}</select></label>
+          </div>
+          <div style={half}>
+            <label className="field">Length (min)<input className="input" type="number" min={15} max={240} step={5} value={f.dur} onChange={ev => set({ dur: Number(ev.target.value) })} /></label>
+            <label className="field">Drop-in price (£)<input className="input" inputMode="decimal" value={f.price} onChange={ev => set({ price: ev.target.value })} /></label>
+          </div>
+          <div style={half}>
+            <label className="field">Format<select className="input" value={f.format} onChange={ev => set({ format: ev.target.value })}>{['In studio', 'Online', 'Hybrid'].map(x => <option key={x} value={x}>{x}</option>)}</select></label>
+            <label className="field">Level<input className="input" list="class-levels" value={f.level} onChange={ev => set({ level: ev.target.value })} /><datalist id="class-levels">{levels.map(l => <option key={l} value={l} />)}</datalist></label>
+          </div>
+          <Toggle on={f.pass} label="Can be booked with a class pass" sub={f.cat === 'Kids & Teens' ? 'Kids & Teens classes use the Kids Term Pass' : 'Adult 5 and 10 Class Passes'} onClick={() => set({ pass: !f.pass })} />
+          <label className="field">Description<textarea className="input" rows={4} value={f.descr} onChange={ev => set({ descr: ev.target.value })} placeholder="What to expect in this class" /></label>
+          <label className="field">Accessibility notes<textarea className="input" rows={2} value={f.access} onChange={ev => set({ access: ev.target.value })} placeholder="Props provided, seated options…" /></label>
+          {cur && <span className="t-meta">Changes to the instructor and length apply to sessions you add from now on. Name, price and description update everywhere.</span>}
+          <Err text={f.err} />
+          <Button onClick={save} disabled={f.busy}>{f.busy ? 'Saving…' : f.id ? 'Save Changes' : 'Add Class'}</Button>
+          {cur && (cur.active
+            ? <Button variant="outline" fullWidth onClick={() => confirm(`Remove ${cur.name}?`, upcoming ? `${cur.name} has ${upcoming} upcoming session${upcoming > 1 ? 's' : ''}. It will be archived (so booking history stays intact) and those sessions stay on the timetable until you cancel them.` : 'If it has never run it will be deleted; otherwise it will be archived so booking history stays intact.', 'Remove Class', async () => { const r = await rpc('remove_class', { p_id: cur.id }); toast(r.err || String(r.msg)); if (!r.err) back(); })}>Remove Class</Button>
+            : <Button variant="outline" fullWidth onClick={() => act('set_class_active', { p_id: cur.id, p_active: true }, `${cur.name} restored.`)}>Restore Class</Button>)}
+        </div>
+      );
+    },
 
     settings: () => {
       const S = D.settings;
